@@ -8,11 +8,21 @@ export class CardManager {
     console.log("Card manager created");
   }
 
+  getCards() {
+    return this.cardArray;
+  }
+
   printCards() {
     let output = "";
-    this.cardArray.forEach((card) => (output += `${card.toString()} `));
+    this.cardArray.forEach((card) => (output += `${card.title} `));
     return output;
   }
 
-  sortAZByTitle() {}
+  sortByTitleAscending() {
+    this.cardArray.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  sortByTitleDescending() {
+    this.cardArray.sort((a, b) => b.title.localeCompare(a.title));
+  }
 }

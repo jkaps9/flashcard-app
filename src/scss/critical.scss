@@ -239,6 +239,12 @@ header {
   }
 }
 
+.study.hidden,
+.all-cards.hidden {
+  visibility: hidden;
+  height: 0;
+}
+
 footer {
   text-align: center;
 }

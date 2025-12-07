@@ -47,6 +47,15 @@ if (modeToggleButtons) {
     button.addEventListener("click", () => {
       removeClass("active", modeToggleButtons);
       button.classList.add("active");
+      if (studySection && allCardsSection) {
+        if (button.id === "study-mode") {
+          allCardsSection.classList.add("hidden");
+          studySection.classList.remove("hidden");
+        } else if (button.id === "all-cards") {
+          studySection.classList.add("hidden");
+          allCardsSection.classList.remove("hidden");
+        }
+      }
     }),
   );
 }

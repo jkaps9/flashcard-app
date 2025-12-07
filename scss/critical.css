@@ -241,9 +241,11 @@ header {
   position: relative;
 }
 header .navbar {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
+  padding: clamp(1.5rem, 0.9718rem + 2.2535vw, 3rem) 0;
+  position: relative;
 }
 header .logo {
   max-height: 2.5rem;
@@ -256,9 +258,24 @@ header .logo svg {
   height: 2.5rem;
   width: auto;
 }
-header .navbar {
-  position: relative;
-  padding: clamp(1.5rem, 0.9718rem + 2.2535vw, 3rem) 0;
+header .mode-toggle {
+  padding: 0.25rem;
+  white-space: nowrap;
+  cursor: auto;
+}
+header .mode-toggle:hover {
+  box-shadow: 2px 2px 0 0 var(--border-color);
+}
+header .mode-toggle button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+}
+header .mode-toggle button.active {
+  background-color: var(--colors-yellow-500);
+  border: 1px solid var(--border-color);
+  border-radius: 100vw;
 }
 
 .study .study-card__header {
@@ -285,6 +302,13 @@ header .navbar {
   display: flex;
   justify-content: space-between;
   padding: clamp(0.75rem, 0.2729rem + 2.0356vw, 1.25rem) clamp(1rem, 0.7615rem + 1.0178vw, 1.25rem);
+}
+
+.study.hidden,
+.all-cards.hidden {
+  visibility: hidden;
+  height: 0;
+  padding: 0;
 }
 
 footer {

@@ -31,6 +31,20 @@
           <button class="btn btn--secondary">Go to All Cards</button>
         </div>
       </div>
+      <div class="study-card__footer">
+        <button class="btn btn--border">
+          {% include "svgs/icon-chevron-left.svg" %} Previous
+        </button>
+        <p>
+          Card
+          <span class="current-card">1</span>
+          of
+          <span class="max-cards">40</span>
+        </p>
+        <button class="btn btn--border">
+          Next {% include "svgs/icon-chevron-right.svg" %}
+        </button>
+      </div>
     </div>
     <div class="study__statistics"></div>
   </div>

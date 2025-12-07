@@ -107,20 +107,13 @@ header {
   }
 
   .logo {
-    max-height: 4rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    &__company-name {
-      font-size: 2rem;
-      font-weight: 900;
+    max-height: 2.5rem;
+    .logo-large {
+      visibility: hidden;
+      height: 0;
     }
-
     svg {
-      height: 4rem;
+      height: 2.5rem;
       width: auto;
     }
   }
@@ -314,6 +307,17 @@ footer {
     .nav__item {
       a {
         color: var(--text-color);
+      }
+    }
+
+    .logo {
+      .logo-large {
+        visibility: visible;
+        height: auto;
+      }
+      .logo-small {
+        visibility: hidden;
+        height: 0;
       }
     }
   }

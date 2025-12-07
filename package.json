@@ -1,25 +1,25 @@
 {
-  "name": "eleventy-template",
+  "name": "flashcard-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-template/",
+    "build-ghpages": "npx @11ty/eleventy --pathprefix=/flashcard-app/",
     "start": "npx eleventy --serve",
     "lint": "prettier --write ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jkaps9/eleventy-template.git"
+    "url": "git+https://github.com/jkaps9/flashcard-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/jkaps9/eleventy-template/issues"
+    "url": "https://github.com/jkaps9/flashcard-app/issues"
   },
-  "homepage": "https://github.com/jkaps9/eleventy-template#readme",
+  "homepage": "https://github.com/jkaps9/flashcard-app#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4"

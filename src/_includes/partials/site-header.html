@@ -7,19 +7,12 @@
         aria-label="{{ site.name }} - home"
       >
         {% include "svgs/logo.svg" %}
-        <p class="logo__company-name">Company</p>
+        <p class="logo__company-name">Flashcard</p>
       </a>
       <nav
         class="main-nav"
         aria-label="main"
       >
-        <ul class="nav__list">
-          {% for item in site.navigation %}
-            <li class="nav__item">
-              <a href="{{ item.url | url }}">{{ item.text }}</a>
-            </li>
-          {% endfor %}
-        </ul>
         <a
           href="#"
           class="btn--primary"
@@ -27,10 +20,6 @@
           Contact Us
         </a>
       </nav>
-      <button class="nav-toggle">
-        {% include "svgs/icon-hamburger.svg" %}
-        {% include "svgs/icon-close.svg" %}
-      </button>
     </div>
   </div>
 </header>

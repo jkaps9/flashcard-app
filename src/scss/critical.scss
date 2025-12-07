@@ -4,21 +4,32 @@
 
 :root {
   // COLORS
+  --colors-neutral-0: #ffffff;
+  --colors-neutral-100: #f7f3f0;
+  --colors-neutral-600: #6d5b4d;
+  --colors-neutral-900: #2e1401;
+  --colors-yellow-500: #f8cb46;
+  --colors-blue-400: #92adeb;
+  --colors-teal-400: #47d9c9;
+  --colors-pink-500: #f073a3;
+  --colors-pink-400: #fc8ae5;
+  --colors-blue-600: #5072c7;
+  --colors-pink-700: #e11966;
+
   --primary-color: #1e3a8a;
   --primary-hover: #1e40af;
 
-  --accent-color: #84cc16;
-  --accent-hover: #65a30d;
+  --accent-color: var(--colors-yellow-500);
 
   --bg-color: #f1f1f1;
   --bg-secondary: #f9f9f9;
   --bg-tertiary: #f5f5f5;
 
-  --text-color: #333;
+  --text-color: var(--colors-neutral-900);
   --text-secondary: #555;
   --text-muted: #666;
 
-  --border-color: #e0e0e0;
+  --border-color: var(--colors-neutral-900);
   --card-bg: #ffffff;
   --footer-bg: #111;
   --cta-bg: #1a1a1a;
@@ -82,18 +93,54 @@ p {
   color: var(--accent-color);
 }
 
-.btn--primary {
-  display: inline-block;
-  padding: 1em 2em;
-  text-decoration: none;
-  background-color: var(--accent-color);
-  color: var(--text-secondary);
-  font-size: 1rem;
-  font-weight: 700;
+.btn {
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 100vw;
+  box-shadow: 2px 2px 0 0 var(--border-color);
+  color: var(--text-color);
   cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
 
   &:hover {
-    background-color: var(--accent-hover);
+    box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
+  }
+
+  &:active {
+    box-shadow: 3px 3px 0 0 var(--colors-blue-600);
+  }
+
+  &--primary {
+    background-color: var(--accent-color);
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &--secondary {
+    background-color: var(--colors-neutral-0);
+  }
+
+  &--border {
+    box-shadow: none;
+
+    &:hover {
+      background-color: var(--colors-neutral-100);
+      box-shadow: none;
+    }
+
+    &:active {
+      box-shadow:
+        0 0 0 2px var(--colors-neutral-0),
+        0 0 0 4px var(--colors-blue-600);
+    }
   }
 }
 

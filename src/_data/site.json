@@ -1,0 +1,34 @@
+{
+  "name": "Eleventy Template",
+  "navigation": [
+    {
+      "text": "About",
+      "url": "/about/"
+    },
+    {
+      "text": "Services",
+      "url": "/services/"
+    },
+    {
+      "text": "Projects",
+      "url": "/projects/"
+    }
+  ],
+  "services": [
+    {
+      "title": "Service 1",
+      "description": "A one to two sentence description of the service to help users understand",
+      "icon": "icon-brush.svg"
+    },
+    {
+      "title": "Service 2",
+      "description": "A one to two sentence description of the service to help users understand",
+      "icon": "icon-dinner-tray.svg"
+    },
+    {
+      "title": "Service 3",
+      "description": "A one to two sentence description of the service to help users understand",
+      "icon": "icon-calculator.svg"
+    }
+  ]
+}

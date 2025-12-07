@@ -1,0 +1,31 @@
+{
+  "name": "eleventy-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-template/",
+    "start": "npx eleventy --serve",
+    "lint": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkaps9/eleventy-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jkaps9/eleventy-template/issues"
+  },
+  "homepage": "https://github.com/jkaps9/eleventy-template#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^6.0.4"
+  },
+  "devDependencies": {
+    "prettier-plugin-jinja-template": "^2.1.0",
+    "sass": "^1.93.2"
+  }
+}

@@ -21,7 +21,7 @@
 
   --accent-color: var(--colors-yellow-500);
 
-  --bg-color: #f1f1f1;
+  --bg-color: var(--colors-neutral-100);
   --bg-secondary: #f9f9f9;
   --bg-tertiary: #f5f5f5;
 
@@ -75,18 +75,19 @@ body {
     color 0.3s ease;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: var(--container-max-width);
-  width: var(--container-width);
-}
-
 section {
   padding: var(--section-spacing) 0;
 }
 
 p {
   color: var(--text-secondary);
+}
+
+// Utilities
+.container {
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  width: var(--container-width);
 }
 
 .accent-text {
@@ -142,6 +143,17 @@ p {
         0 0 0 4px var(--colors-blue-600);
     }
   }
+}
+
+.card {
+  align-items: center;
+  background-color: var(--colors-neutral-0);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+  display: flex;
+  flex-direction: column;
 }
 
 header {

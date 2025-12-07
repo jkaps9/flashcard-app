@@ -1,0 +1,37 @@
+<section class="study">
+  <div class="container">
+    <div class="card study__card">
+      <div class="study-card__header">
+        <div class="left">
+          <button class="btn btn--border">
+            All Categories {% include "svgs/icon-chevron-down.svg" %}
+          </button>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="hide-mastered"
+              name="hide-mastered"
+            />
+            <label for="hide-mastered">Hide Mastered</label>
+          </div>
+        </div>
+        <div class="right">
+          <button class="btn btn--border">
+            {% include "svgs/icon-shuffle.svg" %} Shuffle
+          </button>
+        </div>
+      </div>
+      <div class="study-card__main">
+        <div class="no-cards">
+          <h2>No cards to study</h2>
+          <p>
+            You don't have any cards yet. Add your first card in the All Cards
+            tab.
+          </p>
+          <button class="btn btn--secondary">Go to All Cards</button>
+        </div>
+      </div>
+    </div>
+    <div class="study__statistics"></div>
+  </div>
+</section>

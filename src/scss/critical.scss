@@ -163,9 +163,11 @@ header {
   position: relative;
 
   .navbar {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
+    padding: clamp(1.5rem, 0.9718rem + 2.2535vw, 3rem) 0;
+    position: relative;
   }
 
   .logo {
@@ -180,9 +182,25 @@ header {
     }
   }
 
-  .navbar {
-    position: relative;
-    padding: clamp(1.5rem, 0.9718rem + 2.2535vw, 3rem) 0;
+  .mode-toggle {
+    padding: 0.25rem;
+    white-space: nowrap;
+    cursor: auto;
+    &:hover {
+      box-shadow: 2px 2px 0 0 var(--border-color);
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+      &.active {
+        background-color: var(--colors-yellow-500);
+        border: 1px solid var(--border-color);
+        border-radius: 100vw;
+      }
+    }
   }
 }
 

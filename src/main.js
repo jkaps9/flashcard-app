@@ -18,9 +18,16 @@ console.log(cardManager.printCards());
 const output = document.querySelector(".output");
 
 if (output) {
-  output.appendChild(createParagraph(cardManager.printCards()));
-  cardManager.sortAZByTitle();
-  output.appendChild(createParagraph(cardManager.printCards()));
+  let cards = cardManager.getCards();
+
+  cards.forEach((card) => output.appendChild(createParagraph(card.title)));
+  cardManager.sortByTitleAscending();
+  output.appendChild(createParagraph("---"));
+  cards.forEach((card) => output.appendChild(createParagraph(card.title)));
+
+  cardManager.sortByTitleDescending();
+  output.appendChild(createParagraph("---"));
+  cards.forEach((card) => output.appendChild(createParagraph(card.title)));
 }
 
 function createParagraph(text) {

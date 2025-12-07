@@ -81,6 +81,58 @@
 </header>
 
     <main>
+  <section class="study">
+  <div class="container">
+    <div class="card study__card">
+      <div class="study-card__header">
+        <div class="left">
+          <button class="btn btn--border">
+            All Categories <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m7.73438 10.8594-4.625-4.59378c-.15626-.125-.15626-.375 0-.53124l.625-.59376c.15624-.15624.375-.15624.53124 0l3.75 3.6875 3.71878-3.6875c.1562-.15624.4062-.15624.5312 0l.625.59376c.1563.15624.1563.40624 0 .53124l-4.62498 4.59378c-.15624.1562-.375.1562-.53124 0z" fill="#2e1401"/></svg>
+          </button>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="hide-mastered"
+              name="hide-mastered"
+            />
+            <label for="hide-mastered">Hide Mastered</label>
+          </div>
+        </div>
+        <div class="right">
+          <button class="btn btn--border">
+            <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m15.7852 12.4919-2.5 2.2812c-.4688.4688-1.2813.1563-1.2813-.5312v-1.25h-.9687c-.125 0-.2188-.0313-.2813-.125l-2.81249-3.03128 1.1875-1.28125 2.49999 2.68753h.375v-1.50003c0-.65625.8125-1 1.2813-.53125l2.5 2.21878c.2812.3125.2812.7812 0 1.0625zm-15.406294-7.75003c-.21875 0-.37499975-.15625-.37499975-.375v-1c0-.1875.15624975-.375.37499975-.375h3.468754c.09375 0 .1875.0625.25.125l2.8125 3.03125-1.1875 1.3125-2.5-2.71875zm15.406294-1.28125c.2812.28125.2812.75 0 1.03125l-2.5 2.28125c-.4688.5-1.2813.15625-1.2813-.53125v-1.5h-.375l-7.53124 8.15623c-.0625.0625-.15625.0938-.25.0938h-3.468754c-.21875 0-.37499975-.1563-.37499975-.375v-1c0-.1875.15624975-.375.37499975-.375h2.843754l7.53124-8.12503c.0625-.0625.1563-.125.2813-.125h.9687v-1.25c0-.65625.8125-.999997 1.2813-.5z" fill="#2e1401"/></svg> Shuffle
+          </button>
+        </div>
+      </div>
+      <div class="study-card__main">
+        <div class="no-cards">
+          <h2>No cards to study</h2>
+          <p>
+            You don't have any cards yet. Add your first card in the All Cards
+            tab.
+          </p>
+          <button class="btn btn--secondary">Go to All Cards</button>
+        </div>
+      </div>
+      <div class="study-card__footer">
+        <button class="btn btn--border">
+          <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m5.14062 7.73438 4.59376-4.625c.125-.15626.37502-.15626.53122 0l.5938.625c.1562.125.1562.375 0 .53124l-3.68752 3.71876 3.68752 3.75002c.1562.1562.1562.375 0 .5312l-.5938.625c-.1562.1563-.40622.1563-.53122 0l-4.59376-4.62498c-.15624-.15624-.15624-.375 0-.53124z" fill="#2e1401"/></svg> Previous
+        </button>
+        <p>
+          Card
+          <span class="current-card">1</span>
+          of
+          <span class="max-cards">40</span>
+        </p>
+        <button class="btn btn--border">
+          Next <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m10.8594 8.26562-4.56252 4.62498c-.15626.1563-.40626.1563-.53126 0l-.625-.625c-.15624-.1562-.15624-.375 0-.5312l3.6875-3.75002-3.6875-3.71876c-.15624-.15624-.15624-.40624 0-.53124l.625-.625c.125-.15626.375-.15626.53126 0l4.56252 4.625c.1562.15624.1562.375 0 .53124z" fill="#2e1401"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="study__statistics"></div>
+  </div>
+</section>
+
 </main>
     <footer>
   <div class="container">

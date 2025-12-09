@@ -37,14 +37,42 @@ function createElement(text, type) {
 
 function createCard(card) {
   const newCard = document.createElement("div");
-  newCard.classList = "card";
+  newCard.classList = "card flashcard";
 
   const question = createParagraph(card.question);
+  const headerRow = createElement("", "div");
+  headerRow.classList = "flashcard__header";
+  headerRow.append(question);
+  newCard.append(headerRow);
+
+  const answerSection = createElement("", "div");
+  answerSection.classList = "flashcard__answer";
   const answer = createParagraph(card.answer);
+  answer.classList = "flashcard__answer-text";
+  answerSection.append(createParagraph("Answer: "));
+  answerSection.append(answer);
+  newCard.append(answerSection);
 
-  newCard.append(question);
-  newCard.append(answer);
+  const footerRow = createElement("", "div");
+  footerRow.classList = "flashcard__footer";
 
+  const category = createElement(card.category, "div");
+  category.classList = "btn btn--secondary category-badge";
+
+  const progress = createElement("", "div");
+  const progressBar = createElement("", "div");
+  const progressAmount = createParagraph(`${card.knownCount}/5`);
+  progress.append(progressBar);
+  progress.append(progressAmount);
+
+  const menuButton = createElement("", "button");
+  menuButton.classList = "flashcard__menu-button";
+
+  footerRow.append(category);
+  footerRow.append(progress);
+  footerRow.append(menuButton);
+
+  newCard.append(footerRow);
   return newCard;
 }
 

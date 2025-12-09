@@ -1,33 +1,21 @@
 import { CardManager } from "./scripts/CardManager.js";
 
-const fruits = [
-  "Grapes",
-  "Apples",
-  "Oranges",
-  "Bananas",
-  "Watermelons",
-  "Pineapples",
-  "Coconuts",
-];
-
 const cardManager = new CardManager();
-fruits.forEach((fruit) => cardManager.addCard(fruit));
-
-console.log(cardManager.printCards());
 
 const output = document.querySelector(".output");
 
 if (output) {
   let cards = cardManager.getCards();
-
-  cards.forEach((card) => output.appendChild(createParagraph(card.question)));
-  cardManager.sortByQuestionAscending();
-  output.appendChild(createParagraph("---"));
-  cards.forEach((card) => output.appendChild(createParagraph(card.question)));
-
-  cardManager.sortByQuestionDescending();
-  output.appendChild(createParagraph("---"));
-  cards.forEach((card) => output.appendChild(createParagraph(card.question)));
+  if (cards.length === 0) {
+    output.append(createElement("No cards yet", "h2"));
+    output.append(
+      createParagraph(
+        "Add your first card using the form above and it will show up here.",
+      ),
+    );
+  } else {
+    cards.forEach((card) => output.appendChild(createCard(card)));
+  }
 }
 
 function createParagraph(text) {
@@ -36,9 +24,21 @@ function createParagraph(text) {
   return para;
 }
 
+function createElement(text, type) {
+  const newElement = document.createElement(type);
+  newElement.innerHTML = text;
+  return newElement;
+}
+
 function createCard(card) {
-  const card = document.createElement("div");
-  card.classList = "card";
+  const newCard = document.createElement("div");
+  newCard.classList = "card";
+
+  const question = createParagraph(card.question);
+  const answer = createParagraph(card.answer);
+
+  newCard.append(question);
+  newCard.append(answer);
 }
 
 // Mode Toggle

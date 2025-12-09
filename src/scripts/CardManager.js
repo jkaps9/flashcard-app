@@ -4,7 +4,9 @@ export class CardManager {
   cardArray = [];
 
   addCard(question, answer, category) {
-    this.cardArray.push(new Card(question, answer, category));
+    const newId = String(this.cardArray.length + 1).padStart(3, "0");
+
+    this.cardArray.push(new Card(newId, question, answer, category));
     console.log("Card manager created");
   }
 
@@ -14,7 +16,10 @@ export class CardManager {
 
   printCards() {
     let output = "";
-    this.cardArray.forEach((card) => (output += `${card.question} `));
+    this.cardArray.forEach((card) => {
+      output += `${card.question} `;
+      output += `\n`;
+    });
     return output;
   }
 

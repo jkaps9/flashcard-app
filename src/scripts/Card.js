@@ -1,5 +1,6 @@
 export class Card {
-  constructor(question, answer, category, knownCount = 0) {
+  constructor(id, question, answer, category, knownCount = 0) {
+    this.id = id;
     this.question = question;
     this.answer = answer;
     this.category = category;

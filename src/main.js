@@ -2,10 +2,10 @@ import { CardManager } from "./scripts/CardManager.js";
 
 const cardManager = new CardManager();
 
-cardManager.addCard("What is 2+2?", "4", "Maths");
-cardManager.addCard("What is 484?", "16", "Maths");
-cardManager.addCard("What is 81/9?", "9", "Maths");
-cardManager.addCard("What is 27-15?", "12", "Maths");
+cardManager.addCard("What is 2+2?", "4", "Maths", 1);
+cardManager.addCard("What is 484?", "16", "Maths", 3);
+cardManager.addCard("What is 81/9?", "9", "Maths", 0);
+cardManager.addCard("What is 27-15?", "12", "Maths", 5);
 
 const output = document.querySelector(".card-grid");
 
@@ -56,21 +56,32 @@ function createCard(card) {
   const footerRow = createElement("", "div");
   footerRow.classList = "flashcard__footer";
 
+  const categoryItem = createElement("", "div");
   const category = createElement(card.category, "div");
   category.classList = "btn btn--secondary category-badge";
+  categoryItem.append(category);
 
   const progress = createElement("", "div");
+  progress.classList = "footer__progress";
   const progressBar = createElement("", "div");
+  progressBar.classList = "progress__bar";
+  progressBar.style.setProperty(
+    "--progress",
+    `${(card.knownCount / 5) * 100}%`,
+  );
   const progressAmount = createParagraph(`${card.knownCount}/5`);
+  progressAmount.classList = "progress__amount";
   progress.append(progressBar);
   progress.append(progressAmount);
 
+  const menuItem = createElement("", "div");
   const menuButton = createElement("", "button");
   menuButton.classList = "flashcard__menu-button";
+  menuItem.append(menuButton);
 
-  footerRow.append(category);
+  footerRow.append(categoryItem);
   footerRow.append(progress);
-  footerRow.append(menuButton);
+  footerRow.append(menuItem);
 
   newCard.append(footerRow);
   return newCard;

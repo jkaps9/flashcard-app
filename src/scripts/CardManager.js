@@ -3,10 +3,12 @@ import { Card } from "/scripts/Card.js";
 export class CardManager {
   cardArray = [];
 
-  addCard(question, answer, category) {
+  addCard(question, answer, category, knownCount = 0) {
     const newId = String(this.cardArray.length + 1).padStart(3, "0");
 
-    this.cardArray.push(new Card(newId, question, answer, category));
+    this.cardArray.push(
+      new Card(newId, question, answer, category, knownCount),
+    );
     console.log("Card manager created");
   }
 

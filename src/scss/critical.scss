@@ -239,6 +239,61 @@ header {
   }
 }
 
+.all-cards {
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .flashcard {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__header {
+      padding: 0.5rem;
+    }
+
+    &__answer {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0.5rem;
+    }
+    &__footer {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+
+      & > * {
+        padding: 0.5rem;
+      }
+
+      .footer__progress {
+        align-items: center;
+        border-inline: 1px solid var(--border-color);
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .progress {
+        &__bar {
+          // TODO: make the background image have a borer radius on the right
+          background-image: linear-gradient(
+            to right,
+            var(--border-color) var(--progress),
+            transparent var(--progress)
+          );
+          border: 1px solid var(--border-color);
+          border-radius: 100vw;
+          height: 12px;
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+
 .study.hidden,
 .all-cards.hidden {
   visibility: hidden;
@@ -302,6 +357,22 @@ footer {
           flex-direction: row;
         }
       }
+    }
+  }
+
+  .all-cards {
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (min-width: 64rem) {
+  .all-cards {
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }

@@ -268,7 +268,7 @@ header .mode-toggle:hover {
 }
 header .mode-toggle button {
   background: none;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   padding: 0.75rem 1rem;
 }
@@ -302,6 +302,46 @@ header .mode-toggle button.active {
   display: flex;
   justify-content: space-between;
   padding: clamp(0.75rem, 0.2729rem + 2.0356vw, 1.25rem) clamp(1rem, 0.7615rem + 1.0178vw, 1.25rem);
+}
+
+.all-cards .card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.all-cards .flashcard {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.all-cards .flashcard__header {
+  padding: 0.5rem;
+}
+.all-cards .flashcard__answer {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0.5rem;
+}
+.all-cards .flashcard__footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+.all-cards .flashcard__footer > * {
+  padding: 0.5rem;
+}
+.all-cards .flashcard__footer .footer__progress {
+  align-items: center;
+  border-inline: 1px solid var(--border-color);
+  display: flex;
+  gap: 0.5rem;
+}
+.all-cards .flashcard__footer .progress__bar {
+  background-image: linear-gradient(to right, var(--border-color) var(--progress), transparent var(--progress));
+  border: 1px solid var(--border-color);
+  border-radius: 100vw;
+  height: 12px;
+  width: 100px;
 }
 
 .study.hidden,
@@ -352,5 +392,15 @@ footer {
   .study .study-card__header .left {
     align-items: center;
     flex-direction: row;
+  }
+  .all-cards .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 64rem) {
+  .all-cards .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

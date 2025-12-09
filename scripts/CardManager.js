@@ -3,8 +3,12 @@ import { Card } from "/scripts/Card.js";
 export class CardManager {
   cardArray = [];
 
-  addCard(title) {
-    this.cardArray.push(new Card(title));
+  addCard(question, answer, category, knownCount = 0) {
+    const newId = String(this.cardArray.length + 1).padStart(3, "0");
+
+    this.cardArray.push(
+      new Card(newId, question, answer, category, knownCount),
+    );
     console.log("Card manager created");
   }
 
@@ -14,15 +18,18 @@ export class CardManager {
 
   printCards() {
     let output = "";
-    this.cardArray.forEach((card) => (output += `${card.title} `));
+    this.cardArray.forEach((card) => {
+      output += `${card.question} `;
+      output += `\n`;
+    });
     return output;
   }
 
-  sortByTitleAscending() {
-    this.cardArray.sort((a, b) => a.title.localeCompare(b.title));
+  sortByQuestionAscending() {
+    this.cardArray.sort((a, b) => a.question.localeCompare(b.question));
   }
 
-  sortByTitleDescending() {
-    this.cardArray.sort((a, b) => b.title.localeCompare(a.title));
+  sortByQuestionDescending() {
+    this.cardArray.sort((a, b) => b.question.localeCompare(a.question));
   }
 }

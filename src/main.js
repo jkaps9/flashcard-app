@@ -2,7 +2,12 @@ import { CardManager } from "./scripts/CardManager.js";
 
 const cardManager = new CardManager();
 
-const output = document.querySelector(".output");
+cardManager.addCard("What is 2+2?", "4", "Maths");
+cardManager.addCard("What is 484?", "16", "Maths");
+cardManager.addCard("What is 81/9?", "9", "Maths");
+cardManager.addCard("What is 27-15?", "12", "Maths");
+
+const output = document.querySelector(".card-grid");
 
 if (output) {
   let cards = cardManager.getCards();
@@ -39,6 +44,8 @@ function createCard(card) {
 
   newCard.append(question);
   newCard.append(answer);
+
+  return newCard;
 }
 
 // Mode Toggle

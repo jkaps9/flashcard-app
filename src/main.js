@@ -20,20 +20,25 @@ const output = document.querySelector(".output");
 if (output) {
   let cards = cardManager.getCards();
 
-  cards.forEach((card) => output.appendChild(createParagraph(card.title)));
-  cardManager.sortByTitleAscending();
+  cards.forEach((card) => output.appendChild(createParagraph(card.question)));
+  cardManager.sortByQuestionAscending();
   output.appendChild(createParagraph("---"));
-  cards.forEach((card) => output.appendChild(createParagraph(card.title)));
+  cards.forEach((card) => output.appendChild(createParagraph(card.question)));
 
-  cardManager.sortByTitleDescending();
+  cardManager.sortByQuestionDescending();
   output.appendChild(createParagraph("---"));
-  cards.forEach((card) => output.appendChild(createParagraph(card.title)));
+  cards.forEach((card) => output.appendChild(createParagraph(card.question)));
 }
 
 function createParagraph(text) {
   const para = document.createElement("p");
   para.innerHTML = text;
   return para;
+}
+
+function createCard(card) {
+  const card = document.createElement("div");
+  card.classList = "card";
 }
 
 // Mode Toggle

@@ -1,9 +1,12 @@
 export class Card {
-  constructor(title) {
-    this.title = title;
+  constructor(question, answer, category, knownCount = 0) {
+    this.question = question;
+    this.answer = answer;
+    this.category = category;
+    this.knownCount = knownCount;
   }
 
   toString() {
-    return `Title: ${this.title}`;
+    return `Question: ${this.question}, Answer: ${this.answer}, Category: ${this.category}, knownCount: ${this.knownCount}`;
   }
 }

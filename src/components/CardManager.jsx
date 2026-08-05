@@ -10,9 +10,10 @@ export default function CardManager() {
   };
 
   return (
-    <div class="card-grid">
+    <div className="card-grid">
       {cards.map((card) => (
         <Card
+          key={card.id}
           id={card.id}
           question={card.question}
           answer={card.answer}

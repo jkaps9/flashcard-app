@@ -123,7 +123,9 @@ export default function CardManager() {
             placeholder="e.g., Geography"
           />
         </div>
-        <button type="submit">Create Card</button>
+        <button type="submit" className="btn btn--primary">
+          Create Card
+        </button>
       </form>
       <div className="row">
         <div className="filters">

@@ -3,6 +3,7 @@ import initialCardsData from "../data/data.json";
 import Card from "../components/Card";
 import { useMemo } from "react";
 import styles from "./CardManager.module.css";
+import shuffleArray from "../scripts/utils";
 
 export default function CardManager() {
   const [cards, setCards] = useState(initialCardsData);
@@ -85,6 +86,10 @@ export default function CardManager() {
     }
   };
 
+  const handleShuffle = () => {
+    setCards((prev) => shuffleArray(prev));
+  };
+
   return (
     <div className="card-manager">
       <form onSubmit={handleAddCard} className="card">
@@ -105,45 +110,50 @@ export default function CardManager() {
         />
         <button type="submit">Create Card</button>
       </form>
-      <div className="button-row">
-        <div className="category-filter">
-          <button
-            type="button"
-            className="btn"
-            aria-expanded="false"
-            id="categoryFilterButton"
-          >
-            All Categories
-          </button>
-          <fieldset className={styles.dropdownList}>
-            {categoriesWithCounts.map((category) => (
-              <div key={category.name}>
-                <input
-                  type="checkbox"
-                  id={category.name}
-                  name="category"
-                  value={category.name}
-                  checked={selectedCategories.includes(category.name)}
-                  onChange={handleCategoryChange}
-                />
-                <label htmlFor={category.name}>
-                  {category.name} ({category.count})
-                </label>
-              </div>
-            ))}
-          </fieldset>
+      <div className="row">
+        <div className="filters">
+          <div className="category-filter">
+            <button
+              type="button"
+              className="btn"
+              aria-expanded="false"
+              id="categoryFilterButton"
+            >
+              All Categories
+            </button>
+            <fieldset className={styles.dropdownList}>
+              {categoriesWithCounts.map((category) => (
+                <div key={category.name}>
+                  <input
+                    type="checkbox"
+                    id={category.name}
+                    name="category"
+                    value={category.name}
+                    checked={selectedCategories.includes(category.name)}
+                    onChange={handleCategoryChange}
+                  />
+                  <label htmlFor={category.name}>
+                    {category.name} ({category.count})
+                  </label>
+                </div>
+              ))}
+            </fieldset>
+          </div>
+          <div className="mastered-filter">
+            <input
+              type="checkbox"
+              id="hideMastered"
+              name="hideMastered"
+              value="hide-mastered"
+              checked={isHideMastered}
+              onChange={(e) => setIsHideMastered(e.target.checked)}
+            />
+            <label htmlFor="hideMastered">Hide Mastered</label>
+          </div>
         </div>
-        <div className="mastered-filter">
-          <input
-            type="checkbox"
-            id="hideMastered"
-            name="hideMastered"
-            value="hide-mastered"
-            checked={isHideMastered}
-            onChange={(e) => setIsHideMastered(e.target.checked)}
-          />
-          <label htmlFor="hideMastered">Hide Mastered</label>
-        </div>
+        <button className="btn" type="button" onClick={handleShuffle}>
+          Shuffle
+        </button>
       </div>
       <div className="card-grid">
         {filteredCards.slice(0, displayCount).map((card) => (

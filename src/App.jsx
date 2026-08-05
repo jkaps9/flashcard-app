@@ -7,9 +7,11 @@ export default function App() {
   return (
     <>
       <Header></Header>
-      <CardManager></CardManager>
-      <CardList></CardList>
-      <Study></Study>
+      <main>
+        <section className="all-cards">
+          <CardManager></CardManager>
+        </section>
+      </main>
     </>
   );
 }

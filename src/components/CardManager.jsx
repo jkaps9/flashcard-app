@@ -11,6 +11,7 @@ export default function CardManager() {
   const [answer, setAnswer] = useState("");
   const [category, setCategory] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [isHideMastered, setIsHideMastered] = useState(false);
 
   const handleAddCard = (e) => {
     e.preventDefault();
@@ -59,9 +60,18 @@ export default function CardManager() {
   }, [cards]);
 
   const filteredCards = useMemo(() => {
-    if (selectedCategories.length === 0) return cards;
-    return cards.filter((card) => selectedCategories.includes(card.category));
-  }, [selectedCategories, cards]);
+    return cards.filter((card) => {
+      const categoryMatch =
+        selectedCategories.length > 0
+          ? selectedCategories.includes(card.category)
+          : true;
+
+      const masterCheck = isHideMastered ? card.knownCount !== 5 : true;
+
+      console.log(masterCheck);
+      return categoryMatch && masterCheck;
+    });
+  }, [selectedCategories, isHideMastered, cards]);
 
   const handleCategoryChange = (e) => {
     const { value, checked } = e.target;
@@ -96,31 +106,44 @@ export default function CardManager() {
         <button type="submit">Create Card</button>
       </form>
       <div className="button-row">
-        <button
-          type="button"
-          className="btn"
-          ariaExpanded="false"
-          id="categoryFilterButton"
-        >
-          All Categories
-        </button>
-        <fieldset className={styles.dropdownList}>
-          {categoriesWithCounts.map((category) => (
-            <div>
-              <input
-                type="checkbox"
-                id={category.name}
-                name="category"
-                value={category.name}
-                checked={selectedCategories.includes(category.name)}
-                onChange={handleCategoryChange}
-              />
-              <label htmlFor={category.name}>
-                {category.name} ({category.count})
-              </label>
-            </div>
-          ))}
-        </fieldset>
+        <div className="category-filter">
+          <button
+            type="button"
+            className="btn"
+            aria-expanded="false"
+            id="categoryFilterButton"
+          >
+            All Categories
+          </button>
+          <fieldset className={styles.dropdownList}>
+            {categoriesWithCounts.map((category) => (
+              <div key={category.name}>
+                <input
+                  type="checkbox"
+                  id={category.name}
+                  name="category"
+                  value={category.name}
+                  checked={selectedCategories.includes(category.name)}
+                  onChange={handleCategoryChange}
+                />
+                <label htmlFor={category.name}>
+                  {category.name} ({category.count})
+                </label>
+              </div>
+            ))}
+          </fieldset>
+        </div>
+        <div className="mastered-filter">
+          <input
+            type="checkbox"
+            id="hideMastered"
+            name="hideMastered"
+            value="hide-mastered"
+            checked={isHideMastered}
+            onChange={(e) => setIsHideMastered(e.target.checked)}
+          />
+          <label htmlFor="hideMastered">Hide Mastered</label>
+        </div>
       </div>
       <div className="card-grid">
         {filteredCards.slice(0, displayCount).map((card) => (

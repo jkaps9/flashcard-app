@@ -10,16 +10,10 @@
   width: fit-content;
 
   & > * {
-    accent-color: var(--accent-color);
     align-items: center;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-
-    input[type="checkbox"] {
-      height: 1rem;
-      width: 1rem;
-    }
   }
 }

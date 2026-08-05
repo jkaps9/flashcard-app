@@ -134,7 +134,7 @@ select {
   --cta-bg: #1a1a1a;
   --container-max-width: 70rem;
   --container-width: 92%;
-  --section-spacing: clamp(2rem, 0.9437rem + 4.507vw, 5rem);
+  --section-spacing: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
   --card-padding: 1.5rem 2rem;
 }
 /* 
@@ -172,6 +172,29 @@ section {
 
 p {
   color: var(--text-secondary);
+}
+
+form.card {
+  align-items: start;
+  padding: 2rem;
+  gap: 1.5rem;
+
+  .input-group {
+    align-self: stretch;
+  }
+}
+
+label {
+  display: block;
+}
+
+input:not([type="checkbox"]),
+textarea {
+  background-color: var(--colors-neutral-0);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  width: 100%;
 }
 
 input[type="checkbox"] {
@@ -259,7 +282,8 @@ header .navbar {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: clamp(1.5rem, 0.9718rem + 2.2535vw, 3rem) 0;
+  padding-block-start: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
+  padding-block-end: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
   position: relative;
 }
 header .logo {

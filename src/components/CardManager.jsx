@@ -91,7 +91,7 @@ export default function CardManager() {
   };
 
   return (
-    <div className="card-manager">
+    <div className={styles.cardManager}>
       <form onSubmit={handleAddCard} className="card">
         <div className="input-group">
           <label htmlFor="question">Question</label>
@@ -111,6 +111,7 @@ export default function CardManager() {
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
             placeholder="e.g., Paris"
+            rows={3}
           />
         </div>
         <div className="input-group">

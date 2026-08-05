@@ -1,3 +1,9 @@
+.cardManager {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+}
+
 .dropdownList {
   background: var(--colors-neutral-0);
   border: 1px solid var(--border-color);

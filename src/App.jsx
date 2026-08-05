@@ -7,7 +7,9 @@ export default function App() {
       <Header></Header>
       <main>
         <section className="all-cards">
-          <CardManager></CardManager>
+          <div className="container">
+            <CardManager></CardManager>
+          </div>
         </section>
       </main>
     </>

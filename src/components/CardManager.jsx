@@ -4,6 +4,7 @@ import Card from "../components/Card";
 
 export default function CardManager() {
   const [cards, setCards] = useState(initialCardsData);
+  const [displayCount, setDisplayCount] = useState(12);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [category, setCategory] = useState("");
@@ -30,6 +31,15 @@ export default function CardManager() {
     setCards(cards.filter((card) => card.id !== id));
   };
 
+  const handleLoadMoreClick = () => {
+    if (displayCount >= cards.length) return;
+    if (displayCount + 12 >= cards.length) {
+      setDisplayCount(cards.length);
+    } else {
+      setDisplayCount((prev) => prev + 12);
+    }
+  };
+
   return (
     <div className="card-manager">
       <form onSubmit={handleAddCard} className="card">
@@ -51,7 +61,7 @@ export default function CardManager() {
         <button type="submit">Create Card</button>
       </form>
       <div className="card-grid">
-        {cards.map((card) => (
+        {cards.slice(0, displayCount).map((card) => (
           <Card
             key={card.id}
             id={card.id}
@@ -63,6 +73,11 @@ export default function CardManager() {
           ></Card>
         ))}
       </div>
+      {displayCount < cards.length && (
+        <button type="button" className="btn" onClick={handleLoadMoreClick}>
+          Load More
+        </button>
+      )}
     </div>
   );
 }

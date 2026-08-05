@@ -2,6 +2,7 @@ import { useState } from "react";
 import initialCardsData from "../data/data.json";
 import Card from "../components/Card";
 import { useMemo } from "react";
+import styles from "./CardManager.module.css";
 
 export default function CardManager() {
   const [cards, setCards] = useState(initialCardsData);
@@ -103,9 +104,9 @@ export default function CardManager() {
         >
           All Categories
         </button>
-        <fieldset>
+        <fieldset className={styles.dropdownList}>
           {categoriesWithCounts.map((category) => (
-            <>
+            <div>
               <input
                 type="checkbox"
                 id={category.name}
@@ -117,7 +118,7 @@ export default function CardManager() {
               <label htmlFor={category.name}>
                 {category.name} ({category.count})
               </label>
-            </>
+            </div>
           ))}
         </fieldset>
       </div>

@@ -1,0 +1,4 @@
+.dropdownList {
+  display: flex;
+  flex-direction: column;
+}

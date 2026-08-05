@@ -1,6 +1,6 @@
 # Frontend Mentor - Flashcard app solution
 
-This is a solution to the [Flashcard app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/flashcard-app). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Flashcard app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/flashcard-app). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -67,6 +67,10 @@ Users should be able to:
 - Live Site URL: [https://jkaps9.github.io/flashcard-app/](https://jkaps9.github.io/flashcard-app/)
 
 ## My process
+
+### Resources
+
+- [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
 
 ### Built with
 

@@ -9,6 +9,7 @@ export default function CardManager() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [category, setCategory] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const handleAddCard = (e) => {
     e.preventDefault();
@@ -56,6 +57,23 @@ export default function CardManager() {
     return [...formattedCategories];
   }, [cards]);
 
+  const filteredCards = useMemo(() => {
+    if (selectedCategories.length === 0) return cards;
+    return cards.filter((card) => selectedCategories.includes(card.category));
+  }, [selectedCategories, cards]);
+
+  const handleCategoryChange = (e) => {
+    const { value, checked } = e.target;
+
+    if (checked) {
+      setSelectedCategories([...selectedCategories, value]);
+    } else {
+      setSelectedCategories(
+        selectedCategories.filter((category) => category !== value),
+      );
+    }
+  };
+
   return (
     <div className="card-manager">
       <form onSubmit={handleAddCard} className="card">
@@ -93,6 +111,8 @@ export default function CardManager() {
                 id={category.name}
                 name="category"
                 value={category.name}
+                checked={selectedCategories.includes(category.name)}
+                onChange={handleCategoryChange}
               />
               <label htmlFor={category.name}>
                 {category.name} ({category.count})
@@ -102,7 +122,7 @@ export default function CardManager() {
         </fieldset>
       </div>
       <div className="card-grid">
-        {cards.slice(0, displayCount).map((card) => (
+        {filteredCards.slice(0, displayCount).map((card) => (
           <Card
             key={card.id}
             id={card.id}

@@ -32,7 +32,7 @@ export default function CardManager() {
 
   return (
     <div className="card-manager">
-      <form onSubmit={handleAddCard}>
+      <form onSubmit={handleAddCard} className="card">
         <input
           value={question}
           onChange={(e) => setQuestion(e.target.value)}

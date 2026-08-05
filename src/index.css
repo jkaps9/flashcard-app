@@ -137,7 +137,7 @@ select {
   --section-spacing: clamp(2rem, 0.9437rem + 4.507vw, 5rem);
   --card-padding: 1.5rem 2rem;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #3b82f6;
@@ -155,7 +155,7 @@ select {
     --footer-bg: #000;
     --cta-bg: #000;
   }
-}
+} */
 body {
   line-height: 1.6;
   font-family: "Poppins", Arial, Helvetica, sans-serif;

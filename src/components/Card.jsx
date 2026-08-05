@@ -9,16 +9,16 @@ export default function Card({
   const percentageComplete = (knownCount / 5) * 100;
   return (
     <div className="card flashcard">
-      <h3 className="flashcard__header">{question}</h3>
+      <div className="flashcard__header">
+        <h3>{question}</h3>
+      </div>
 
       <div className="flashcard__answer">
         <p>Answer: </p>
         <p className="flashcard__answer-text">{answer}</p>
       </div>
-
-      <div className="btn btn--secondary category-badge">{category}</div>
-
       <div className="flashcard__footer">
+        <div className="btn btn--secondary category-badge">{category}</div>
         <div className="footer__progress">
           <div
             className="progress__bar"
@@ -26,8 +26,10 @@ export default function Card({
           ></div>
           <p className="progress__amount">{knownCount}/5</p>
         </div>
-        <button className="flashcard__menu-button">...</button>
-        <button onClick={() => onDelete(id)}>Delete</button>
+        <div className="footer__buttons">
+          <button className="flashcard__menu-button">...</button>
+          <button onClick={() => onDelete(id)}>Delete</button>
+        </div>
       </div>
     </div>
   );

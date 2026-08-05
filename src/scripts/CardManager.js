@@ -1,5 +1,3 @@
-import { Card } from "/scripts/Card.js";
-
 export class CardManager {
   cardArray = [];
 

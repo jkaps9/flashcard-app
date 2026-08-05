@@ -93,21 +93,36 @@ export default function CardManager() {
   return (
     <div className="card-manager">
       <form onSubmit={handleAddCard} className="card">
-        <input
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Question"
-        />
-        <textarea
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          placeholder="Answer"
-        />
-        <input
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          placeholder="Category"
-        />
+        <div className="input-group">
+          <label htmlFor="question">Question</label>
+          <input
+            id="question"
+            name="question"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="e.g., What is the capital of France?"
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="answer">Answer</label>
+          <textarea
+            id="answer"
+            name="answer"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            placeholder="e.g., Paris"
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="category">Category</label>
+          <input
+            id="category"
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            placeholder="e.g., Geography"
+          />
+        </div>
         <button type="submit">Create Card</button>
       </form>
       <div className="row">

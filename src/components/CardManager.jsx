@@ -1,6 +1,7 @@
 import { useState } from "react";
 import initialCardsData from "../data/data.json";
 import Card from "../components/Card";
+import { useMemo } from "react";
 
 export default function CardManager() {
   const [cards, setCards] = useState(initialCardsData);
@@ -40,6 +41,21 @@ export default function CardManager() {
     }
   };
 
+  const categoriesWithCounts = useMemo(() => {
+    const tally = cards.reduce((acc, item) => {
+      acc[item.category] = (acc[item.category] || 0) + 1;
+      return acc;
+    }, {});
+
+    const formattedCategories = Object.entries(tally).map(([name, count]) => {
+      return { name, count };
+    });
+
+    formattedCategories.sort((a, b) => a.name.localeCompare(b.name));
+
+    return [...formattedCategories];
+  }, [cards]);
+
   return (
     <div className="card-manager">
       <form onSubmit={handleAddCard} className="card">
@@ -60,6 +76,31 @@ export default function CardManager() {
         />
         <button type="submit">Create Card</button>
       </form>
+      <div className="button-row">
+        <button
+          type="button"
+          className="btn"
+          ariaExpanded="false"
+          id="categoryFilterButton"
+        >
+          All Categories
+        </button>
+        <fieldset>
+          {categoriesWithCounts.map((category) => (
+            <>
+              <input
+                type="checkbox"
+                id={category.name}
+                name="category"
+                value={category.name}
+              />
+              <label htmlFor={category.name}>
+                {category.name} ({category.count})
+              </label>
+            </>
+          ))}
+        </fieldset>
+      </div>
       <div className="card-grid">
         {cards.slice(0, displayCount).map((card) => (
           <Card

@@ -256,7 +256,7 @@ h6 {
 .btn {
   align-items: center;
   border: 1px solid var(--color-border);
-  border-radius: 100vw;
+  border-radius: calc(var(--corner-radius-full) / 16 * 1rem);
   box-shadow: 2px 2px 0 0 var(--color-border);
   color: var(--color-text-header);
   cursor: pointer;
@@ -268,35 +268,43 @@ h6 {
   line-height: 1.2;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
+
+  &:hover {
+    box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
+  }
+
+  &:active {
+    box-shadow: 3px 3px 0 0 var(--colors-blue-600);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
-.btn:hover {
-  box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
-}
-.btn:active {
-  box-shadow: 3px 3px 0 0 var(--colors-blue-600);
-}
+
 .btn--primary {
   background-color: var(--color-accent);
 }
-.btn--primary:disabled {
-  opacity: 0.5;
-}
+
 .btn--secondary {
   background-color: var(--colors-neutral-0);
 }
+
 .btn--border {
   background-color: var(--colors-neutral-0);
   box-shadow: none;
   padding: 0.75rem 1rem;
-}
-.btn--border:hover {
-  background-color: var(--colors-neutral-100);
-  box-shadow: none;
-}
-.btn--border:active {
-  box-shadow:
-    0 0 0 2px var(--colors-neutral-0),
-    0 0 0 4px var(--colors-blue-600);
+
+  &:hover {
+    background-color: var(--colors-neutral-100);
+    box-shadow: none;
+  }
+
+  &:active {
+    box-shadow:
+      0 0 0 2px var(--colors-neutral-0),
+      0 0 0 4px var(--colors-blue-600);
+  }
 }
 
 .card {

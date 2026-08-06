@@ -1,0 +1,15 @@
+.actionMenuTrigger {
+  border: none;
+  background: none;
+  display: flex;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-visible,
+  &:active {
+    border-radius: var(--radius-xs);
+    outline: 2px solid var(--colors-blue-600);
+  }
+}

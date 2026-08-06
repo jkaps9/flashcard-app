@@ -23,10 +23,10 @@ export default function App() {
       <main>
         <section className="all-cards">
           <div className="container">
-            {currentView === VIEWS.card_manager && <CardManager></CardManager>}
-            {currentView === VIEWS.study && (
-              <Study onClick={toggleView}></Study>
-            )}
+            <CardManager
+              currentView={currentView}
+              toggleView={toggleView}
+            ></CardManager>
           </div>
         </section>
       </main>

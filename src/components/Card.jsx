@@ -18,7 +18,7 @@ export default function Card({
         <p className="flashcard__answer-text">{answer}</p>
       </div>
       <div className="flashcard__footer">
-        <div className="btn btn--secondary category-badge">{category}</div>
+        <div className="tag">{category}</div>
         <div className="footer__progress">
           <div
             className="progress__bar"

@@ -343,49 +343,60 @@ h6 {
   flex-direction: column;
 }
 
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~         Specifics          ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
+
 header {
   position: relative;
-}
-header .navbar {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding-block-start: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
-  padding-block-end: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
-  position: relative;
-}
-header .logo {
-  max-height: 2.5rem;
-}
-header .logo .logo-large {
-  visibility: hidden;
-  height: 0;
-}
-header .logo svg {
-  height: 2.5rem;
-  width: auto;
-}
-header .mode-toggle {
-  padding: 0.25rem;
-  white-space: nowrap;
-  cursor: auto;
-}
-header .mode-toggle:hover {
-  box-shadow: 2px 2px 0 0 var(--color-border);
-}
-header .mode-toggle button {
-  background: none;
-  border: 1px solid transparent;
-  cursor: pointer;
-  padding: 0.75rem 1rem;
-}
-header .mode-toggle button.active {
-  background-color: var(--colors-yellow-500);
-  border: 1px solid var(--color-border);
-  border-radius: 100vw;
+
+  .navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-block-start: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
+    padding-block-end: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+    position: relative;
+  }
+
+  .logo {
+    max-height: 2.5rem;
+
+    svg {
+      height: 2.5rem;
+      width: auto;
+    }
+  }
+
+  .logo .logo-large {
+    visibility: hidden;
+    height: 0;
+  }
+
+  .mode-toggle {
+    padding: 0.25rem;
+    white-space: nowrap;
+    cursor: auto;
+    button {
+      background: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+    }
+
+    button.active {
+      background-color: var(--colors-yellow-500);
+      border: 1px solid var(--color-border);
+      border-radius: 100vw;
+    }
+  }
+
+  .mode-toggle:hover {
+    box-shadow: 2px 2px 0 0 var(--color-border);
+  }
 }
 
-.study .study-card__header {
+header .mode-toggle button .study .study-card__header {
   align-self: stretch;
   border-bottom: 1px solid var(--color-border);
   display: flex;
@@ -463,10 +474,6 @@ header .mode-toggle button.active {
   visibility: hidden;
   height: 0;
   padding: 0;
-}
-
-footer {
-  text-align: center;
 }
 
 @media (min-width: 48rem) {

@@ -375,6 +375,38 @@ h6 {
   text-wrap: nowrap;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: inset(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
+.skip {
+  background-color: var(--color-primary);
+  color: var(--color-header-text);
+  left: -9999px;
+  opacity: 0;
+  padding: 1rem 1.5rem;
+  position: absolute;
+  z-index: 999;
+
+  &:focus {
+    font-weight: 700;
+    left: 50%;
+    opacity: 1;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+
+    transform: translateX(-50%);
+  }
+}
+
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
 <~~         Specifics          ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/

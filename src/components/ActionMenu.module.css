@@ -3,6 +3,7 @@
   background: none;
   display: flex;
   padding: 0;
+  position: relative;
   &:hover {
     cursor: pointer;
   }

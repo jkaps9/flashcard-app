@@ -90,18 +90,20 @@ export default function ActionMenu({
           aria-orientation="vertical"
         >
           {actions.map((action, index) => (
-            <button
-              key={action.label}
-              ref={(el) => (itemRefs.current[index] = el)}
-              type="button"
-              role="menuitem"
-              tabIndex={-1}
-              className={`action-menu-item ${action.isDestructive ? "destructive" : ""}`}
-              onClick={() => handleActionSelect(action.onClick)}
-              onKeyDown={(e) => handleMenuKeyDown(e, index)}
-            >
-              {action.label}
-            </button>
+            <div>
+              <button
+                key={action.label}
+                ref={(el) => (itemRefs.current[index] = el)}
+                type="button"
+                role="menuitem"
+                tabIndex={-1}
+                className={`action-menu-item ${action.isDestructive ? "destructive" : ""}`}
+                onClick={() => handleActionSelect(action.onClick)}
+                onKeyDown={(e) => handleMenuKeyDown(e, index)}
+              >
+                {action.label}
+              </button>
+            </div>
           ))}
         </div>
       )}

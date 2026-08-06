@@ -108,6 +108,7 @@ select {
   }
 }
 :root {
+  /* COLOR */
   --colors-neutral-0: #ffffff;
   --colors-neutral-100: #f7f3f0;
   --colors-neutral-600: #6d5b4d;
@@ -119,6 +120,40 @@ select {
   --colors-pink-400: #fc8ae5;
   --colors-blue-600: #5072c7;
   --colors-pink-700: #e11966;
+
+  /* SPACING */
+  --spacing-0: 0;
+  --spacing-100: 8;
+  --spacing-125: 10;
+  --spacing-150: 12;
+  --spacing-200: 16;
+  --spacing-250: 20;
+  --spacing-300: 24;
+  --spacing-400: 32;
+  --spacing-500: 40;
+  --spacing-600: 48;
+  --spacing-800: 64;
+  --spacing-1000: 80;
+  --spacing-1200: 96;
+  --spacing-1400: 112;
+  --spacing-1600: 128;
+  --spacing-1800: 140;
+  --spacing-25: 2;
+  --spacing-50: 4;
+  --spacing-75: 6;
+
+  /* RADIUS */
+  --corner-radius-0: 0;
+  --corner-radius-2: 2;
+  --corner-radius-4: 4;
+  --corner-radius-6: 6;
+  --corner-radius-8: 8;
+  --corner-radius-10: 10;
+  --corner-radius-12: 12;
+  --corner-radius-16: 16;
+  --corner-radius-20: 20;
+  --corner-radius-24: 24;
+  --corner-radius-full: 999;
 
   /* COLORS */
   --color-primary: #1e3a8a;

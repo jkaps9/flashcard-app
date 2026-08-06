@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import CardManager from "./components/CardManager";
+import Study from "./components/Study.jsx";
 
 const VIEWS = { study: "STUDY", card_manager: "CARD_MANAGER" };
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <section className="all-cards">
           <div className="container">
             {currentView === VIEWS.card_manager && <CardManager></CardManager>}
+            {currentView === VIEWS.study && <Study></Study>}
           </div>
         </section>
       </main>

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import ChevronDown from "../assets/icons/icon-chevron-down.svg";
 import ChevronLeft from "../assets/icons/icon-chevron-left.svg";
 import ChevronRight from "../assets/icons/icon-chevron-right.svg";
@@ -5,6 +7,18 @@ import Shuffle from "../assets/icons/icon-shuffle.svg";
 import StudyCard from "./StudyCard.jsx";
 
 export default function Study({ cards, onClick }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    if (currentIndex < cards.length - 1) setCurrentIndex((prev) => prev + 1);
+    else setCurrentIndex(0);
+  };
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) setCurrentIndex((prev) => prev - 1);
+    else setCurrentIndex(cards.length - 1);
+  };
+
   return (
     <section class="study">
       <div class="container">
@@ -24,27 +38,27 @@ export default function Study({ cards, onClick }) {
               </div>
             ) : (
               <StudyCard
-                key={cards[0].id}
-                id={cards[0].id}
-                question={cards[0].question}
-                answer={cards[0].answer}
-                category={cards[0].category}
-                knownCount={cards[0].knownCount}
+                key={cards[currentIndex].id}
+                id={cards[currentIndex].id}
+                question={cards[currentIndex].question}
+                answer={cards[currentIndex].answer}
+                category={cards[currentIndex].category}
+                knownCount={cards[currentIndex].knownCount}
               ></StudyCard>
             )}
           </div>
           <div class="study-card__footer">
-            <button class="btn btn--border">
-              <img src={ChevronLeft} alt="" ariaHidden="true" /> Previous
+            <button class="btn btn--border" onClick={handlePrevious}>
+              <img src={ChevronLeft} alt="" aria-hidden="true" /> Previous
             </button>
             <p>
               Card
-              <span class="current-card">1</span>
+              <span class="current-card">{currentIndex + 1}</span>
               of
               <span class="max-cards">{cards.length}</span>
             </p>
-            <button class="btn btn--border">
-              Next <img src={ChevronRight} alt="" ariaHidden="true" />
+            <button class="btn btn--border" onClick={handleNext}>
+              Next <img src={ChevronRight} alt="" aria-hidden="true" />
             </button>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./DropdownList.module.css";
+import ChevronDown from "../assets/icons/icon-chevron-down.svg";
 
 export default function DropdownList({
   listItems,
@@ -76,6 +77,7 @@ export default function DropdownList({
         onKeyDown={handleButtonKeyDown}
       >
         All Categories
+        <img src={ChevronDown} alt="" aria-hidden="true"></img>
       </button>
       {isOpen && (
         <fieldset ref={menuRef} className={styles.dropdownList}>

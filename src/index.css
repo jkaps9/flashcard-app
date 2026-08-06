@@ -312,8 +312,10 @@ h6 {
     box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
   }
 
+  &:focus-visible,
   &:active {
     box-shadow: 3px 3px 0 0 var(--colors-blue-600);
+    outline: none;
   }
 
   &:disabled {

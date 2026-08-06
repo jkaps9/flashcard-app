@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import styles from "./CardManager.module.css";
 import shuffleArray from "../scripts/utils";
 import DropdownList from "./DropdownList";
+import ShuffleIcon from "../assets/icons/icon-shuffle.svg";
 
 export default function CardManager() {
   const [cards, setCards] = useState(initialCardsData);
@@ -151,6 +152,7 @@ export default function CardManager() {
           </div>
         </div>
         <button className="btn" type="button" onClick={handleShuffle}>
+          <img src={ShuffleIcon} alt="" aria-hidden="true"></img>
           Shuffle
         </button>
       </div>

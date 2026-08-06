@@ -1,7 +1,7 @@
 import LogoSmall from "../assets/icons/logo-small.svg";
 import LogoLarge from "../assets/icons/logo-large.svg";
 
-export default function Header() {
+export default function Header({ onChange }) {
   return (
     <header>
       <div className="container">
@@ -18,12 +18,10 @@ export default function Header() {
               <img src={LogoLarge} alt="site logo" />
             </div>
           </a>
-          <div className="btn btn--secondary mode-toggle">
-            <button id="study-mode">Study Mode</button>
-            <button id="all-cards" className="active">
-              All Cards
-            </button>
-          </div>
+          <button className="btn btn--secondary mode-toggle" onClick={onChange}>
+            <span>Study Mode</span>
+            <span className="active">All Cards</span>
+          </button>
         </div>
       </div>
     </header>

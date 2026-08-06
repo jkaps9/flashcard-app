@@ -119,48 +119,30 @@ select {
   --colors-pink-400: #fc8ae5;
   --colors-blue-600: #5072c7;
   --colors-pink-700: #e11966;
-  --primary-color: #1e3a8a;
-  --primary-hover: #1e40af;
-  --accent-color: var(--colors-yellow-500);
-  --bg-color: var(--colors-neutral-100);
-  --bg-secondary: #f9f9f9;
-  --bg-tertiary: #f5f5f5;
-  --text-color: var(--colors-neutral-900);
-  --text-secondary: #555;
-  --text-muted: #666;
-  --border-color: var(--colors-neutral-900);
-  --card-bg: #ffffff;
-  --footer-bg: #111;
-  --cta-bg: #1a1a1a;
+
+  /* COLORS */
+  --color-primary: #1e3a8a;
+  --color-primary-hover: #1e40af;
+  --color-accent: var(--colors-yellow-500);
+  --color-bg: var(--colors-neutral-100);
+
+  --color-text-header: var(--colors-neutral-900);
+  --color-text-body: var(--colors-neutral-600);
+
+  --color-border: var(--colors-neutral-900);
+  --color-bg-surface: var(--colors-neutral-0);
+
+  /* LAYOUT */
   --container-max-width: 70rem;
   --container-width: 92%;
   --section-spacing: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
-  --card-padding: 1.5rem 2rem;
 }
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #3b82f6;
-    --primary-hover: #60a5fa;
-    --accent-color: #a3e635;
-    --accent-hover: #bef264;
-    --bg-color: #0f0f0f;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #262626;
-    --text-color: #e5e5e5;
-    --text-secondary: #a3a3a3;
-    --text-muted: #737373;
-    --border-color: #333;
-    --card-bg: #1a1a1a;
-    --footer-bg: #000;
-    --cta-bg: #000;
-  }
-} */
+
 body {
   line-height: 1.6;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  color: var(--text-color);
-  background-color: var(--bg-color);
+  color: var(--color-text-header);
+  background-color: var(--color-bg);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -171,7 +153,7 @@ section {
 }
 
 p {
-  color: var(--text-secondary);
+  color: var(--color-text-body);
 }
 
 form.card {
@@ -191,14 +173,14 @@ label {
 input:not([type="checkbox"]),
 textarea {
   background-color: var(--colors-neutral-0);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 1rem;
   width: 100%;
 }
 
 input[type="checkbox"] {
-  accent-color: var(--accent-color);
+  accent-color: var(--color-accent);
   height: 1rem;
   width: 1rem;
 }
@@ -215,15 +197,15 @@ input[type="checkbox"] {
   justify-content: space-between;
 }
 .accent-text {
-  color: var(--accent-color);
+  color: var(--color-accent);
 }
 
 .btn {
   align-items: center;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   border-radius: 100vw;
-  box-shadow: 2px 2px 0 0 var(--border-color);
-  color: var(--text-color);
+  box-shadow: 2px 2px 0 0 var(--color-border);
+  color: var(--color-text-header);
   cursor: pointer;
   display: inline-flex;
   font-size: 1rem;
@@ -241,7 +223,7 @@ input[type="checkbox"] {
   box-shadow: 3px 3px 0 0 var(--colors-blue-600);
 }
 .btn--primary {
-  background-color: var(--accent-color);
+  background-color: var(--color-accent);
 }
 .btn--primary:disabled {
   opacity: 0.5;
@@ -268,7 +250,7 @@ input[type="checkbox"] {
   align-items: center;
   background-color: var(--colors-neutral-0);
   border-radius: 1rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   border-right-width: 3px;
   border-bottom-width: 3px;
   display: flex;
@@ -303,7 +285,7 @@ header .mode-toggle {
   cursor: auto;
 }
 header .mode-toggle:hover {
-  box-shadow: 2px 2px 0 0 var(--border-color);
+  box-shadow: 2px 2px 0 0 var(--color-border);
 }
 header .mode-toggle button {
   background: none;
@@ -313,13 +295,13 @@ header .mode-toggle button {
 }
 header .mode-toggle button.active {
   background-color: var(--colors-yellow-500);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   border-radius: 100vw;
 }
 
 .study .study-card__header {
   align-self: stretch;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
   padding: clamp(0.75rem, 0.2729rem + 2.0356vw, 1.25rem)
@@ -339,7 +321,7 @@ header .mode-toggle button.active {
 .study .study-card__footer {
   align-items: center;
   align-self: stretch;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
   padding: clamp(0.75rem, 0.2729rem + 2.0356vw, 1.25rem)
@@ -361,8 +343,8 @@ header .mode-toggle button.active {
   padding: 0.5rem;
 }
 .all-cards .flashcard__answer {
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   padding: 1rem 0.5rem;
 }
 .all-cards .flashcard__footer {
@@ -374,17 +356,17 @@ header .mode-toggle button.active {
 }
 .all-cards .flashcard__footer .footer__progress {
   align-items: center;
-  border-inline: 1px solid var(--border-color);
+  border-inline: 1px solid var(--color-border);
   display: flex;
   gap: 0.5rem;
 }
 .all-cards .flashcard__footer .progress__bar {
   background-image: linear-gradient(
     to right,
-    var(--border-color) var(--progress),
+    var(--color-border) var(--progress),
     transparent var(--progress)
   );
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   border-radius: 100vw;
   height: 12px;
   width: 100px;
@@ -422,7 +404,7 @@ footer {
     gap: clamp(1.25rem, 0.3929rem + 1.7857vw, 2rem);
   }
   header .nav__item a {
-    color: var(--text-color);
+    color: var(--color-text-header);
   }
   header .logo .logo-large {
     visibility: visible;

@@ -3,32 +3,12 @@ import ChevronLeft from "../assets/icons/icon-chevron-left.svg";
 import ChevronRight from "../assets/icons/icon-chevron-right.svg";
 import Shuffle from "../assets/icons/icon-shuffle.svg";
 
-export default function Study() {
+export default function Study({ onClick }) {
   return (
-    <section class="study  hidden">
+    <section class="study">
       <div class="container">
         <div class="card study__card">
-          <div class="study-card__header">
-            <div class="left">
-              <button class="btn btn--border">
-                All Categories{" "}
-                <img src={ChevronDown} alt="" ariaHidden="true" />
-              </button>
-              <div class="checkbox">
-                <input
-                  type="checkbox"
-                  id="hide-mastered"
-                  name="hide-mastered"
-                />
-                <label for="hide-mastered">Hide Mastered</label>
-              </div>
-            </div>
-            <div class="right">
-              <button class="btn btn--border">
-                <img src={Shuffle} alt="" ariaHidden="true" /> Shuffle
-              </button>
-            </div>
-          </div>
+          <div class="study-card__header"></div>
           <div class="study-card__main">
             <div class="no-cards">
               <h2>No cards to study</h2>
@@ -36,7 +16,9 @@ export default function Study() {
                 You don't have any cards yet. Add your first card in the All
                 Cards tab.
               </p>
-              <button class="btn btn--secondary">Go to All Cards</button>
+              <button class="btn btn--secondary" onClick={onClick}>
+                Go to All Cards
+              </button>
             </div>
           </div>
           <div class="study-card__footer">

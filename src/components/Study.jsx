@@ -20,50 +20,45 @@ export default function Study({ cards, onClick }) {
   };
 
   return (
-    <section class="study">
-      <div class="container">
-        <div class="card study__card">
-          <div class="study-card__header"></div>
-          <div class="study-card__main">
-            {cards.length === 0 ? (
-              <div class="no-cards">
-                <h2>No cards to study</h2>
-                <p>
-                  You don't have any cards yet. Add your first card in the All
-                  Cards tab.
-                </p>
-                <button class="btn btn--secondary" onClick={onClick}>
-                  Go to All Cards
-                </button>
-              </div>
-            ) : (
-              <StudyCard
-                key={cards[currentIndex].id}
-                id={cards[currentIndex].id}
-                question={cards[currentIndex].question}
-                answer={cards[currentIndex].answer}
-                category={cards[currentIndex].category}
-                knownCount={cards[currentIndex].knownCount}
-              ></StudyCard>
-            )}
-          </div>
-          <div class="study-card__footer">
-            <button class="btn btn--border" onClick={handlePrevious}>
-              <img src={ChevronLeft} alt="" aria-hidden="true" /> Previous
-            </button>
+    <div class="card study__card">
+      <div class="study-card__header"></div>
+      <div class="study-card__main">
+        {cards.length === 0 ? (
+          <div class="no-cards">
+            <h2>No cards to study</h2>
             <p>
-              Card
-              <span class="current-card">{currentIndex + 1}</span>
-              of
-              <span class="max-cards">{cards.length}</span>
+              You don't have any cards yet. Add your first card in the All Cards
+              tab.
             </p>
-            <button class="btn btn--border" onClick={handleNext}>
-              Next <img src={ChevronRight} alt="" aria-hidden="true" />
+            <button class="btn btn--secondary" onClick={onClick}>
+              Go to All Cards
             </button>
           </div>
-        </div>
-        <div class="study__statistics"></div>
+        ) : (
+          <StudyCard
+            key={cards[currentIndex].id}
+            id={cards[currentIndex].id}
+            question={cards[currentIndex].question}
+            answer={cards[currentIndex].answer}
+            category={cards[currentIndex].category}
+            knownCount={cards[currentIndex].knownCount}
+          ></StudyCard>
+        )}
       </div>
-    </section>
+      <div class="study-card__footer">
+        <button class="btn btn--border" onClick={handlePrevious}>
+          <img src={ChevronLeft} alt="" aria-hidden="true" /> Previous
+        </button>
+        <p>
+          Card
+          <span class="current-card">{currentIndex + 1}</span>
+          of
+          <span class="max-cards">{cards.length}</span>
+        </p>
+        <button class="btn btn--border" onClick={handleNext}>
+          Next <img src={ChevronRight} alt="" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
   );
 }

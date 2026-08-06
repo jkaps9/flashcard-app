@@ -6,7 +6,7 @@ const VIEWS = { study: "STUDY", card_manager: "CARD_MANAGER" };
 export default function App() {
   const [currentView, setCurrentView] = useState(VIEWS.card_manager);
   const toggleView = () => {
-    if(currentView === VIEWS.study) {
+    if (currentView === VIEWS.study) {
       setCurrentView(VIEWS.card_manager);
     } else {
       setCurrentView(VIEWS.study);
@@ -15,7 +15,10 @@ export default function App() {
 
   return (
     <>
-      <Header onChange={toggleView}></Header>
+      <Header
+        toggled={currentView === VIEWS.study}
+        onChange={toggleView}
+      ></Header>
       <main>
         <section className="all-cards">
           <div className="container">

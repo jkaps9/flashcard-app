@@ -1,7 +1,7 @@
 import LogoSmall from "../assets/icons/logo-small.svg";
 import LogoLarge from "../assets/icons/logo-large.svg";
 
-export default function Header({ onChange }) {
+export default function Header({ toggled, onChange }) {
   return (
     <header>
       <div className="container">
@@ -19,8 +19,8 @@ export default function Header({ onChange }) {
             </div>
           </a>
           <button className="btn btn--secondary mode-toggle" onClick={onChange}>
-            <span>Study Mode</span>
-            <span className="active">All Cards</span>
+            <span className={toggled && "active"}>Study Mode</span>
+            <span className={!toggled && "active"}>All Cards</span>
           </button>
         </div>
       </div>

@@ -101,6 +101,9 @@ export default function ActionMenu({
                 onClick={() => handleActionSelect(action.onClick)}
                 onKeyDown={(e) => handleMenuKeyDown(e, index)}
               >
+                {action.icon && (
+                  <img src={action.icon} aria-hidden="true"></img>
+                )}
                 {action.label}
               </button>
             </div>

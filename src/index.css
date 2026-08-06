@@ -566,6 +566,7 @@ header .mode-toggle button .study .study-card__header {
     font-family: var(--font-header);
     font-size: 0.875rem;
     font-weight: 500;
+    gap: calc(var(--spacing-100) / 16 * 1rem);
     line-height: 1.4;
     outline: none;
 

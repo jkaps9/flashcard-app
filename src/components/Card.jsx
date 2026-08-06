@@ -1,4 +1,6 @@
 import ActionMenu from "./ActionMenu";
+import EditIcon from "../assets/icons/icon-edit.svg";
+import DeleteIcon from "../assets/icons/icon-delete.svg";
 
 export default function Card({
   id,
@@ -14,11 +16,13 @@ export default function Card({
     {
       label: "Edit Card",
       onClick: () => console.log("Editing", id),
+      icon: EditIcon,
     },
     {
       label: "Delete Card",
       onClick: () => onDelete(id),
       isDestructive: true,
+      icon: DeleteIcon,
     },
   ];
   return (

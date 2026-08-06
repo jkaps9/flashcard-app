@@ -175,6 +175,9 @@ select {
   --container-max-width: 70rem;
   --container-width: 92%;
   --section-spacing: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+
+  /* Radius */
+  --radius-xs: calc(var(--corner-radius-4) / 16 * 1rem);
 }
 
 body {
@@ -219,8 +222,30 @@ textarea {
 
 input[type="checkbox"] {
   accent-color: var(--color-accent);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
   height: 1rem;
   width: 1rem;
+
+  &:hover {
+    box-shadow: 1px 1px 0 0 var(--colors-neutral-900);
+    cursor: pointer;
+
+    & + label {
+      cursor: pointer;
+    }
+  }
+
+  &:focus-visible,
+  &:focus,
+  &:active {
+    border-radius: var(--radius-xs);
+    box-shadow:
+      0 0 0 2px var(--colors-neutral-0),
+      0 0 0 4px var(--colors-blue-600);
+
+    outline: none;
+  }
 }
 
 h1,

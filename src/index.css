@@ -168,7 +168,7 @@ select {
   --color-bg-surface: var(--colors-neutral-0);
 
   /* TYPOGRAPHY */
-  --font-heading: "Poppins", Arial, Helvetica, sans-serif;
+  --font-header: "Poppins", Arial, Helvetica, sans-serif;
   --font-body: "Poppins", Arial, Helvetica, sans-serif;
 
   /* LAYOUT */
@@ -222,6 +222,20 @@ input[type="checkbox"] {
   height: 1rem;
   width: 1rem;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-header);
+  font-family: var(--font-header);
+}
+
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~         Utilities          ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
 
 .container {
   margin: 0 auto;

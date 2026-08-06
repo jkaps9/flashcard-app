@@ -1,11 +1,14 @@
 .actionMenuTrigger {
-  border: none;
+  border: 1px solid transparent;
   background: none;
   display: flex;
   padding: 0;
   position: relative;
   &:hover {
     cursor: pointer;
+    border-color: var(--color-border);
+    border-radius: var(--radius-xs);
+    box-shadow: 2px 2px 0 0 var(--colors-neutral-900);
   }
 
   &:focus-visible,

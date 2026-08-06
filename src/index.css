@@ -568,16 +568,27 @@ header .mode-toggle button .study .study-card__header {
     font-weight: 500;
     line-height: 1.4;
     outline: none;
+
+    &:hover {
+      border-color: red;
+    }
   }
 
   & > * {
-    border-bottom: 1px solid var(--color-border);
+    border: 2px solid transparent;
+    border-radius: var(--radius-xs);
+    border-bottom-color: var(--color-border);
     padding: 0.5rem 1rem;
     width: 100%;
+
+    &:has(button:focus-visible),
+    &:has(button:active) {
+      border-color: var(--colors-blue-600);
+    }
   }
 
   & > *:last-child {
-    border-bottom: none;
+    border-bottom-color: transparent;
   }
 }
 

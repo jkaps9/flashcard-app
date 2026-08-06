@@ -218,6 +218,21 @@ textarea {
   border-radius: calc(var(--corner-radius-6) / 16 * 1rem);
   padding: 1rem;
   width: 100%;
+
+  &:hover {
+    box-shadow: 2px 2px 0 0 var(--colors-neutral-900);
+  }
+
+  &:focus-visible {
+    border-color: var(--colors-blue-600);
+    box-shadow: 2px 2px 0 0 var(--colors-blue-600);
+    outline: none;
+  }
+
+  &:has(+ .error-message) {
+    border-color: var(--colors-pink-700);
+    box-shadow: 2px 2px 0 0 var(--colors-pink-700);
+  }
 }
 
 input[type="checkbox"] {
@@ -237,7 +252,6 @@ input[type="checkbox"] {
   }
 
   &:focus-visible,
-  &:focus,
   &:active {
     border-radius: var(--radius-xs);
     box-shadow:

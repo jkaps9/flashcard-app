@@ -96,7 +96,7 @@ export default function CardManager({ studyMode, toggleView }) {
   return (
     <>
       {studyMode ? (
-        <Study onClick={toggleView}></Study>
+        <Study cards={cards} onClick={toggleView}></Study>
       ) : (
         <div className={styles.cardManager}>
           <form onSubmit={handleAddCard} className="card">

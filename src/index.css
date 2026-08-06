@@ -167,6 +167,10 @@ select {
   --color-border: var(--colors-neutral-900);
   --color-bg-surface: var(--colors-neutral-0);
 
+  /* TYPOGRAPHY */
+  --font-heading: "Poppins", Arial, Helvetica, sans-serif;
+  --font-body: "Poppins", Arial, Helvetica, sans-serif;
+
   /* LAYOUT */
   --container-max-width: 70rem;
   --container-width: 92%;
@@ -174,10 +178,9 @@ select {
 }
 
 body {
-  line-height: 1.6;
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  color: var(--color-text-header);
   background-color: var(--color-bg);
+  font-family: var(--font-body);
+  line-height: 1.6;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -193,8 +196,8 @@ p {
 
 form.card {
   align-items: start;
-  padding: 2rem;
   gap: 1.5rem;
+  padding: 2rem;
 
   .input-group {
     align-self: stretch;
@@ -207,9 +210,9 @@ label {
 
 input:not([type="checkbox"]),
 textarea {
-  background-color: var(--colors-neutral-0);
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: calc(var(--corner-radius-6) / 16 * 1rem);
   padding: 1rem;
   width: 100%;
 }
@@ -231,6 +234,7 @@ input[type="checkbox"] {
   display: flex;
   justify-content: space-between;
 }
+
 .accent-text {
   color: var(--color-accent);
 }

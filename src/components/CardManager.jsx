@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import { useMemo } from "react";
 import styles from "./CardManager.module.css";
 import shuffleArray from "../scripts/utils";
+import DropdownList from "./DropdownList";
 
 export default function CardManager() {
   const [cards, setCards] = useState(initialCardsData);
@@ -131,31 +132,11 @@ export default function CardManager() {
       <div className="row">
         <div className={styles.cardFilters}>
           <div className="category-filter">
-            <button
-              type="button"
-              className="btn"
-              aria-expanded="false"
-              id="categoryFilterButton"
-            >
-              All Categories
-            </button>
-            <fieldset className={styles.dropdownList}>
-              {categoriesWithCounts.map((category) => (
-                <div key={category.name}>
-                  <input
-                    type="checkbox"
-                    id={category.name}
-                    name="category"
-                    value={category.name}
-                    checked={selectedCategories.includes(category.name)}
-                    onChange={handleCategoryChange}
-                  />
-                  <label htmlFor={category.name}>
-                    {category.name} ({category.count})
-                  </label>
-                </div>
-              ))}
-            </fieldset>
+            <DropdownList
+              listItems={categoriesWithCounts}
+              selectedItems={selectedCategories}
+              handleChange={handleCategoryChange}
+            ></DropdownList>
           </div>
           <div className={styles.masteredFilter}>
             <input

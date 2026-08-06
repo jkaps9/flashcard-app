@@ -38,9 +38,9 @@ export default function CardManager() {
   };
 
   const handleLoadMoreClick = () => {
-    if (displayCount >= cards.length) return;
-    if (displayCount + 12 >= cards.length) {
-      setDisplayCount(cards.length);
+    if (displayCount >= filteredCards.length) return;
+    if (displayCount + 12 >= filteredCards.length) {
+      setDisplayCount(filteredCards.length);
     } else {
       setDisplayCount((prev) => prev + 12);
     }
@@ -167,7 +167,7 @@ export default function CardManager() {
           ></Card>
         ))}
       </div>
-      {displayCount < cards.length && (
+      {displayCount < filteredCards.length && (
         <button type="button" className="btn" onClick={handleLoadMoreClick}>
           Load More
         </button>

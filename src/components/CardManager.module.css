@@ -8,6 +8,7 @@
   align-items: center;
   display: flex;
   gap: 1.5rem;
+  position: relative;
 }
 
 .masteredFilter {

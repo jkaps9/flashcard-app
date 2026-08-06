@@ -1,3 +1,5 @@
+import MenuIcon from "../assets/icons/icon-menu.svg";
+
 export default function Card({
   id,
   question,
@@ -18,7 +20,9 @@ export default function Card({
         <p className="flashcard__answer-text">{answer}</p>
       </div>
       <div className="flashcard__footer">
-        <div className="tag">{category}</div>
+        <div>
+          <div className="tag">{category}</div>
+        </div>
         <div className="footer__progress">
           <div
             className="progress__bar"
@@ -27,8 +31,11 @@ export default function Card({
           <p className="progress__amount">{knownCount}/5</p>
         </div>
         <div className="footer__buttons">
-          <button className="flashcard__menu-button">...</button>
-          <button onClick={() => onDelete(id)}>Delete</button>
+          <button className="flashcard__menu-btn">
+            <img src={MenuIcon} aria-hidden="true" />
+            <span className="sr-only">Toggle Menu</span>
+          </button>
+          {/* <button onClick={() => onDelete(id)}>Delete</button> */}
         </div>
       </div>
     </div>

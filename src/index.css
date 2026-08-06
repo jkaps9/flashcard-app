@@ -205,10 +205,10 @@ form.card {
   .input-group {
     align-self: stretch;
   }
-}
 
-label {
-  display: block;
+  label {
+    display: block;
+  }
 }
 
 input:not([type="checkbox"]),

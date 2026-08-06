@@ -129,7 +129,7 @@ export default function CardManager() {
         </button>
       </form>
       <div className="row">
-        <div className="filters">
+        <div className={styles.cardFilters}>
           <div className="category-filter">
             <button
               type="button"
@@ -157,7 +157,7 @@ export default function CardManager() {
               ))}
             </fieldset>
           </div>
-          <div className="mastered-filter">
+          <div className={styles.masteredFilter}>
             <input
               type="checkbox"
               id="hideMastered"

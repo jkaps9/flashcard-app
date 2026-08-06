@@ -23,3 +23,15 @@
     padding: 0.5rem 1rem;
   }
 }
+
+.cardFilters {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.masteredFilter {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}

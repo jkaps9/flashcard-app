@@ -25,7 +25,7 @@ export default function StudyCard({
       <div className="inner__text">
         {!isAnswerVisible ? (
           <div className="inner__question">
-            <h3>{question}</h3>
+            <h1>{question}</h1>
             <p>Click to reveal answer</p>
           </div>
         ) : (

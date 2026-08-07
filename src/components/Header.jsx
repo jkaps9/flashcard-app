@@ -1,5 +1,6 @@
 import LogoSmall from "../assets/icons/logo-small.svg";
 import LogoLarge from "../assets/icons/logo-large.svg";
+import "./Header.css";
 
 export default function Header({ toggled, onChange }) {
   return (

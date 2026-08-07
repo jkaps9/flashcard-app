@@ -613,4 +613,26 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  main {
+    display: flex;
+    gap: 2rem;
+    margin-inline: auto;
+    max-width: var(--container-max-width);
+    section {
+      display: flex;
+      .container {
+        flex: 1;
+        margin: 0;
+      }
+
+      &:first-of-type {
+        flex: 1;
+      }
+
+      &:last-of-type {
+        min-width: 392px;
+      }
+    }
+  }
 }

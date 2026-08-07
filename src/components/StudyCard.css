@@ -14,11 +14,11 @@
     color: var(--color-header-text);
   }
 
-  &:has(.inner__question) {
+  &:has(h1) {
     background-color: var(--colors-pink-400);
   }
 
-  &:has(.inner__answer) {
+  &:not(:has(h1)) {
     background-color: var(--colors-blue-400);
   }
 }
@@ -27,4 +27,21 @@
   align-items: center;
   display: flex;
   gap: 0.5rem;
+}
+
+.inner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  flex: 1;
+}
+.inner__text--helper {
+  font-weight: 500;
+  line-height: 1.2;
+  opacity: 0.8;
+}
+.inner__text--answer {
+  font-weight: 600;
+  font-size: clamp(1.125rem, 0.993rem + 0.5634vw, 1.5rem);
 }

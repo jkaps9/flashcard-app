@@ -24,15 +24,15 @@ export default function StudyCard({
 
       <div className="inner__text">
         {!isAnswerVisible ? (
-          <div className="inner__question">
+          <>
             <h1>{question}</h1>
-            <p>Click to reveal answer</p>
-          </div>
+            <p className="inner__text--helper">Click to reveal answer</p>
+          </>
         ) : (
-          <div className="inner__answer">
-            <p>Answer:</p>
-            <p className="inner__answer-text">{answer}</p>
-          </div>
+          <>
+            <p className="inner__text--helper">Answer:</p>
+            <p className="inner__text--answer">{answer}</p>
+          </>
         )}
       </div>
 

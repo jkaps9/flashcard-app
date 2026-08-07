@@ -36,7 +36,7 @@ export default function Card({
         <p className="flashcard__answer-text">{answer}</p>
       </div>
       <div className="flashcard__footer">
-        <div>
+        <div className="tag-container">
           <div className="tag">{category}</div>
         </div>
         <div className="footer__progress">

@@ -397,14 +397,14 @@ h1 {
   );
   border: 1px solid var(--color-border);
   border-radius: 100vw;
-  height: 12px;
-  width: 100px;
+  height: clamp(0.5rem, 0.412rem + 0.3756vw, 0.75rem);
+  width: clamp(3.75rem, 2.8697rem + 3.7559vw, 6.25rem);
 }
 
 .progress__amount {
   color: var(--color-header-text);
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   letter-spacing: -0.36px;
   line-height: 1.3;
 }
@@ -476,32 +476,51 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 238px;
   position: relative;
 }
 
 .flashcard__header {
   border-bottom: 1px solid var(--color-border);
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .flashcard__answer {
+  flex: 1;
   padding: 1rem 0.5rem;
 }
 
 .flashcard__footer {
+  align-items: stretch;
   border-top: 1px solid var(--color-border);
   display: grid;
+  flex-shrink: 0;
+  gap: 0.5rem;
   grid-template-columns: auto 1fr auto;
+  min-height: 3.5rem;
+  padding-inline: 1rem;
 
   .footer__progress {
     align-items: center;
-    border-inline: 1px solid var(--color-border);
+    border-inline-end: 1px solid var(--color-border);
     display: flex;
     gap: 0.5rem;
+    padding-inline-end: 0.675rem;
   }
 
-  & > * {
-    padding: 0.5rem;
+  .tag-container {
+    align-items: center;
+    border-inline-end: 1px solid var(--color-border);
+    display: flex;
+    justify-content: center;
+    padding-inline-end: 0.675rem;
+  }
+
+  .action-menu {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 

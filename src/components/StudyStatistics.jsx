@@ -17,8 +17,8 @@ export default function StudyStatistics({ cards }) {
       <ul className="stats-card-list">
         <li className="stats-card">
           <div className="stats-card__content">
-            <h3>Total Cards</h3>
-            <p>{totalCards}</p>
+            <p>Total Cards</p>
+            <p className="stats-card__amount">{totalCards}</p>
           </div>
           <div className="stats-card__icon bg-blue">
             <img src={TotalIcon} alt="" aria-hidden="true" />
@@ -26,8 +26,8 @@ export default function StudyStatistics({ cards }) {
         </li>
         <li className="stats-card">
           <div className="stats-card__content">
-            <h3>Mastered</h3>
-            <p>{masteredCards}</p>
+            <p>Mastered</p>
+            <p className="stats-card__amount">{masteredCards}</p>
           </div>
           <div className="stats-card__icon bg-teal">
             <img src={MasteredIcon} alt="" aria-hidden="true" />
@@ -35,8 +35,8 @@ export default function StudyStatistics({ cards }) {
         </li>
         <li className="stats-card">
           <div className="stats-card__content">
-            <h3>In Progress</h3>
-            <p>{inProgressCards}</p>
+            <p>In Progress</p>
+            <p className="stats-card__amount">{inProgressCards}</p>
           </div>
           <div className="stats-card__icon bg-pink-bright">
             <img src={InProgressIcon} alt="" aria-hidden="true" />
@@ -44,8 +44,8 @@ export default function StudyStatistics({ cards }) {
         </li>
         <li className="stats-card">
           <div className="stats-card__content">
-            <h3>Not Started</h3>
-            <p>{notStartedCards}</p>
+            <p>Not Started</p>
+            <p className="stats-card__amount">{notStartedCards}</p>
           </div>
           <div className="stats-card__icon bg-pink">
             <img src={NotStartedIcon} alt="" aria-hidden="true" />

@@ -122,97 +122,101 @@ export default function CardManager({ studyMode, toggleView }) {
           onIKnowThisClick={increaseProgress}
         ></Study>
       ) : (
-        <div className={styles.cardManager}>
-          <form onSubmit={handleAddCard} className="card">
-            <div className="input-group">
-              <label htmlFor="question">Question</label>
-              <input
-                id="question"
-                name="question"
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
-                placeholder="e.g., What is the capital of France?"
-              />
-            </div>
-            <div className="input-group">
-              <label htmlFor="answer">Answer</label>
-              <textarea
-                id="answer"
-                name="answer"
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-                placeholder="e.g., Paris"
-                rows={3}
-              />
-            </div>
-            <div className="input-group">
-              <label htmlFor="category">Category</label>
-              <input
-                id="category"
-                name="category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                placeholder="e.g., Geography"
-              />
-            </div>
-            <button type="submit" className="btn btn--primary">
-              Create Card
-            </button>
-          </form>
-          <div className={styles.filterRow}>
-            <div className={styles.cardFilters}>
-              <div className="category-filter">
-                <DropdownList
-                  listItems={categoriesWithCounts}
-                  selectedItems={selectedCategories}
-                  handleChange={handleCategoryChange}
-                ></DropdownList>
+        <section>
+          <div className="container">
+            <div className={styles.cardManager}>
+              <form onSubmit={handleAddCard} className="card">
+                <div className="input-group">
+                  <label htmlFor="question">Question</label>
+                  <input
+                    id="question"
+                    name="question"
+                    value={question}
+                    onChange={(e) => setQuestion(e.target.value)}
+                    placeholder="e.g., What is the capital of France?"
+                  />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="answer">Answer</label>
+                  <textarea
+                    id="answer"
+                    name="answer"
+                    value={answer}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    placeholder="e.g., Paris"
+                    rows={3}
+                  />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="category">Category</label>
+                  <input
+                    id="category"
+                    name="category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    placeholder="e.g., Geography"
+                  />
+                </div>
+                <button type="submit" className="btn btn--primary">
+                  Create Card
+                </button>
+              </form>
+              <div className={styles.filterRow}>
+                <div className={styles.cardFilters}>
+                  <div className="category-filter">
+                    <DropdownList
+                      listItems={categoriesWithCounts}
+                      selectedItems={selectedCategories}
+                      handleChange={handleCategoryChange}
+                    ></DropdownList>
+                  </div>
+                  <div className={styles.masteredFilter}>
+                    <input
+                      type="checkbox"
+                      id="hideMastered"
+                      name="hideMastered"
+                      value="hide-mastered"
+                      checked={isHideMastered}
+                      onChange={(e) => setIsHideMastered(e.target.checked)}
+                    />
+                    <label htmlFor="hideMastered">Hide Mastered</label>
+                  </div>
+                </div>
+                <button
+                  className="btn btn--border"
+                  type="button"
+                  onClick={handleShuffle}
+                >
+                  <img src={ShuffleIcon} alt="" aria-hidden="true"></img>
+                  Shuffle
+                </button>
               </div>
-              <div className={styles.masteredFilter}>
-                <input
-                  type="checkbox"
-                  id="hideMastered"
-                  name="hideMastered"
-                  value="hide-mastered"
-                  checked={isHideMastered}
-                  onChange={(e) => setIsHideMastered(e.target.checked)}
-                />
-                <label htmlFor="hideMastered">Hide Mastered</label>
-              </div>
-            </div>
-            <button
-              className="btn btn--border"
-              type="button"
-              onClick={handleShuffle}
-            >
-              <img src={ShuffleIcon} alt="" aria-hidden="true"></img>
-              Shuffle
-            </button>
-          </div>
 
-          <div className="card-grid">
-            {filteredCards.slice(0, displayCount).map((card) => (
-              <Card
-                key={card.id}
-                id={card.id}
-                question={card.question}
-                answer={card.answer}
-                category={card.category}
-                knownCount={card.knownCount}
-                onDelete={handleDeleteCard}
-              ></Card>
-            ))}
+              <div className="card-grid">
+                {filteredCards.slice(0, displayCount).map((card) => (
+                  <Card
+                    key={card.id}
+                    id={card.id}
+                    question={card.question}
+                    answer={card.answer}
+                    category={card.category}
+                    knownCount={card.knownCount}
+                    onDelete={handleDeleteCard}
+                  ></Card>
+                ))}
+              </div>
+              {displayCount < filteredCards.length && (
+                <button
+                  type="button"
+                  className="btn btn--secondary self-centered"
+                  onClick={handleLoadMoreClick}
+                >
+                  Load More
+                </button>
+              )}
+            </div>
           </div>
-          {displayCount < filteredCards.length && (
-            <button
-              type="button"
-              className="btn btn--secondary self-centered"
-              onClick={handleLoadMoreClick}
-            >
-              Load More
-            </button>
-          )}
-        </div>
+        </section>
       )}
     </>
   );

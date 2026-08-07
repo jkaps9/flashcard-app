@@ -30,6 +30,26 @@
   overflow: hidden;
 }
 
+.stats-card__content {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+
+  p {
+    color: var(--color-text-header);
+  }
+}
+
+.stats-card__amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 .stats-card__icon {
   align-items: center;
   align-self: stretch;

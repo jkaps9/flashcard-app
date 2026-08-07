@@ -20,14 +20,10 @@ export default function App() {
         onChange={toggleView}
       ></Header>
       <main>
-        <section className="all-cards">
-          <div className="container">
-            <CardManager
-              studyMode={currentView === VIEWS.study}
-              toggleView={toggleView}
-            ></CardManager>
-          </div>
-        </section>
+        <CardManager
+          studyMode={currentView === VIEWS.study}
+          toggleView={toggleView}
+        ></CardManager>
       </main>
     </>
   );

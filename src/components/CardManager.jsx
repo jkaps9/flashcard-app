@@ -118,10 +118,12 @@ export default function CardManager({ studyMode, toggleView }) {
     <>
       {studyMode ? (
         <Study
-          cards={filteredCards}
+          allCards={cards}
+          filteredCards={filteredCards}
           onClick={toggleView}
           onResetClick={handleResetProgress}
           onIKnowThisClick={increaseProgress}
+          isHideMastered={isHideMastered}
         >
           <Filters
             categoriesWithCounts={categoriesWithCounts}

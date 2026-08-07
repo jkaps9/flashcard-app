@@ -1,31 +1,36 @@
 import { useState } from "react";
 
-import ChevronDown from "../assets/icons/icon-chevron-down.svg";
 import ChevronLeft from "../assets/icons/icon-chevron-left.svg";
 import ChevronRight from "../assets/icons/icon-chevron-right.svg";
-import Shuffle from "../assets/icons/icon-shuffle.svg";
 import StudyCard from "./StudyCard.jsx";
 import StudyStatistics from "./StudyStatistics.jsx";
 
 export default function Study({
-  cards,
+  allCards,
+  filteredCards,
   onClick,
   onResetClick,
   onIKnowThisClick,
+  isHideMastered,
   children,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const safeIndex =
+    filteredCards.length > 0 && currentIndex >= filteredCards.length
+      ? 0
+      : currentIndex;
 
   const handleNext = () => {
-    if (currentIndex < cards.length - 1) setCurrentIndex((prev) => prev + 1);
+    if (safeIndex < filteredCards.length - 1) setCurrentIndex(safeIndex + 1);
     else setCurrentIndex(0);
   };
 
   const handlePrevious = () => {
-    if (currentIndex > 0) setCurrentIndex((prev) => prev - 1);
-    else setCurrentIndex(cards.length - 1);
+    if (safeIndex > 0) setCurrentIndex(safeIndex - 1);
+    else setCurrentIndex(filteredCards.length - 1);
   };
 
+  const currentCard = filteredCards[safeIndex];
   return (
     <>
       <section>
@@ -33,7 +38,7 @@ export default function Study({
           <div className="card study-card">
             <div className="study-card__header">{children}</div>
             <div className="study-card__main">
-              {cards.length === 0 ? (
+              {allCards.length === 0 ? (
                 <div className="no-cards">
                   <h2>No cards to study</h2>
                   <p>
@@ -44,57 +49,74 @@ export default function Study({
                     Go to All Cards
                   </button>
                 </div>
-              ) : (
+              ) : filteredCards.length === 0 ? (
+                <div className="no-cards">
+                  <h2>No cards match your filters</h2>
+                  <p>
+                    Try adjusting your categories or unchecking your mastered
+                    filter.
+                  </p>
+                </div>
+              ) : currentCard ? (
                 <>
                   <StudyCard
-                    key={cards[currentIndex].id}
-                    id={cards[currentIndex].id}
-                    question={cards[currentIndex].question}
-                    answer={cards[currentIndex].answer}
-                    category={cards[currentIndex].category}
-                    knownCount={cards[currentIndex].knownCount}
+                    key={currentCard.id}
+                    id={currentCard.id}
+                    question={currentCard.question}
+                    answer={currentCard.answer}
+                    category={currentCard.category}
+                    knownCount={currentCard.knownCount}
                   ></StudyCard>
+
                   <div className="buttons">
                     <button
                       className="btn btn--primary"
                       onClick={() => {
-                        onIKnowThisClick(cards[currentIndex].id);
-                        handleNext();
+                        onIKnowThisClick(currentCard.id);
+                        const willBeFilteredOut =
+                          isHideMastered && currentCard.knownCount === 4;
+
+                        if (!willBeFilteredOut) {
+                          handleNext();
+                        }
                       }}
                     >
                       I Know This
                     </button>
                     <button
                       className="btn btn--secondary"
-                      onClick={() => onResetClick(cards[currentIndex].id)}
+                      onClick={() => onResetClick(currentCard.id)}
                     >
                       Reset Progress
                     </button>
                   </div>
                 </>
-              )}
+              ) : null}
             </div>
-            <div className="study-card__footer">
-              <button
-                className="btn btn--border icon-btn"
-                onClick={handlePrevious}
-                aria-label="Go to previous card"
-              >
-                <img src={ChevronLeft} alt="" aria-hidden="true" />{" "}
-                <span className="hide-on-mobile">Previous</span>
-              </button>
-              <p>
-                Card {currentIndex + 1} of {cards.length}
-              </p>
-              <button
-                className="btn btn--border icon-btn"
-                onClick={handleNext}
-                aria-label="Go to next card"
-              >
-                <span className="hide-on-mobile">Next</span>{" "}
-                <img src={ChevronRight} alt="" aria-hidden="true" />
-              </button>
-            </div>
+
+            {filteredCards.length > 0 && (
+              <div className="study-card__footer">
+                <button
+                  className="btn btn--border icon-btn"
+                  onClick={handlePrevious}
+                  aria-label="Go to previous card"
+                >
+                  <img src={ChevronLeft} alt="" aria-hidden="true" />{" "}
+                  <span className="hide-on-mobile">Previous</span>
+                </button>
+                <p>
+                  Card {safeIndex + 1} of {filteredCards.length}
+                </p>
+                <button
+                  className="btn btn--border icon-btn"
+                  onClick={handleNext}
+                  aria-label="Go to next card"
+                >
+                  <span className="hide-on-mobile">Next</span>
+                  <img src={ChevronRight} alt="" aria-hidden="true" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -102,7 +124,7 @@ export default function Study({
       <section>
         <div className="container">
           <div className="study-statistics">
-            <StudyStatistics cards={cards}></StudyStatistics>
+            <StudyStatistics cards={allCards}></StudyStatistics>
           </div>
         </div>
       </section>

@@ -10,8 +10,7 @@
 .stats-card-list {
   align-items: flex-start;
   align-self: stretch;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
 }
 
@@ -58,4 +57,16 @@
   flex-direction: column;
   justify-content: center;
   min-width: 100px;
+}
+
+@media (min-width: 48rem) {
+  .stats-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 90rem) {
+    .stats-card-list {
+      grid-template-columns: 1fr;
+    }
+  }
 }

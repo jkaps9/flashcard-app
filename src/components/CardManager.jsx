@@ -72,7 +72,6 @@ export default function CardManager({ studyMode, toggleView }) {
 
       const masterCheck = isHideMastered ? card.knownCount !== 5 : true;
 
-      console.log(masterCheck);
       return categoryMatch && masterCheck;
     });
   }, [selectedCategories, isHideMastered, cards]);

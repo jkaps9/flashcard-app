@@ -31,82 +31,7 @@
   font-weight: 700;
   src: url("./assets/fonts/poppins-v24-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
-/* Remove default padding */
-ul[class],
-ol[class] {
-  padding: 0;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-/* Set core root defaults */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.4;
-  overflow-x: hidden;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-  list-style: none;
-}
-
-/* A elements that don’t have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01s !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01s !important;
-    scroll-behavior: auto !important;
-  }
-}
 :root {
   /* COLOR */
   --colors-neutral-0: #ffffff;
@@ -179,14 +104,98 @@ select {
   /* Radius */
   --radius-xs: calc(var(--corner-radius-4) / 16 * 1rem);
 }
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~           Reset            ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+    overflow-x: hidden;
+  }
+}
 
 body {
   background-color: var(--color-bg);
+  color: var(--color-text-body);
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-body);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  min-height: clamp(53.125rem, 49.2958rem + 16.338vw, 64rem);
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
 }
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-header);
+  font-family: var(--font-header);
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~    Global Element Styles   ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
 
 section {
   padding: var(--section-spacing) 0;
@@ -259,17 +268,6 @@ input[type="checkbox"] {
 
     outline: none;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--color-text-header);
-  font-family: var(--font-header);
-  line-height: 1.2;
 }
 
 h1 {

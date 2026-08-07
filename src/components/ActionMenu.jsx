@@ -88,7 +88,7 @@ export default function ActionMenu({
       {isOpen && (
         <div
           ref={menuRef}
-          className="action-menu-dropdown"
+          className={styles.actionMenuDropdown}
           role="menu"
           aria-orientation="vertical"
         >

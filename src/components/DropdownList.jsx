@@ -70,7 +70,7 @@ export default function DropdownList({
       <button
         ref={buttonRef}
         type="button"
-        className="btn"
+        className="btn btn--border"
         aria-expanded={isOpen}
         id="categoryFilterButton"
         onClick={() => setIsOpen(!isOpen)}

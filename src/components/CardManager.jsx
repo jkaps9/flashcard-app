@@ -155,7 +155,11 @@ export default function CardManager({ studyMode, toggleView }) {
                 <label htmlFor="hideMastered">Hide Mastered</label>
               </div>
             </div>
-            <button className="btn" type="button" onClick={handleShuffle}>
+            <button
+              className="btn btn--border"
+              type="button"
+              onClick={handleShuffle}
+            >
               <img src={ShuffleIcon} alt="" aria-hidden="true"></img>
               Shuffle
             </button>

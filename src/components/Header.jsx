@@ -7,11 +7,7 @@ export default function Header({ toggled, onChange }) {
     <header>
       <div className="container">
         <div className="navbar">
-          <a
-            href="{{ '/' | url }}"
-            className="logo"
-            aria-label="{{ site.name }} - home"
-          >
+          <a href="/" className="logo" aria-label="{{ site.name }} - home">
             <div className="logo-small">
               <img src={LogoSmall} alt="site logo" />
             </div>

@@ -20,7 +20,7 @@ export default function Study({ cards, onClick }) {
   };
 
   return (
-    <div class="card study__card">
+    <div class="card study-card">
       <div class="study-card__header"></div>
       <div class="study-card__main">
         {cards.length === 0 ? (

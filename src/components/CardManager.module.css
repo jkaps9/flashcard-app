@@ -6,7 +6,9 @@
 
 .filterRow {
   align-items: flex-start;
+  align-self: stretch;
   display: flex;
+  flex: 1;
   justify-content: space-between;
 }
 

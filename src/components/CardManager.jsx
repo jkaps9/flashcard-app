@@ -4,10 +4,8 @@ import Card from "../components/Card";
 import { useMemo } from "react";
 import styles from "./CardManager.module.css";
 import shuffleArray from "../scripts/utils";
-import DropdownList from "./DropdownList";
-import ShuffleIcon from "../assets/icons/icon-shuffle.svg";
 import Study from "./Study.jsx";
-
+import Filters from "./Filters.jsx";
 export default function CardManager({ studyMode, toggleView }) {
   const [cards, setCards] = useState(initialCardsData);
   const [displayCount, setDisplayCount] = useState(12);
@@ -112,15 +110,28 @@ export default function CardManager({ studyMode, toggleView }) {
     setCards((prev) => shuffleArray(prev));
   };
 
+  const handleMasteredCheck = () => {
+    setIsHideMastered((prev) => !prev);
+  };
+
   return (
     <>
       {studyMode ? (
         <Study
-          cards={cards}
+          cards={filteredCards}
           onClick={toggleView}
           onResetClick={handleResetProgress}
           onIKnowThisClick={increaseProgress}
-        ></Study>
+        >
+          <Filters
+            categoriesWithCounts={categoriesWithCounts}
+            selectedCategories={selectedCategories}
+            handleCategoryChange={handleCategoryChange}
+            handleShuffle={handleShuffle}
+            isHideMastered={isHideMastered}
+            handleMasteredCheck={handleMasteredCheck}
+          ></Filters>
+        </Study>
       ) : (
         <section>
           <div className="container">
@@ -161,37 +172,14 @@ export default function CardManager({ studyMode, toggleView }) {
                   Create Card
                 </button>
               </form>
-              <div className={styles.filterRow}>
-                <div className={styles.cardFilters}>
-                  <div className="category-filter">
-                    <DropdownList
-                      listItems={categoriesWithCounts}
-                      selectedItems={selectedCategories}
-                      handleChange={handleCategoryChange}
-                    ></DropdownList>
-                  </div>
-                  <div className={styles.masteredFilter}>
-                    <input
-                      type="checkbox"
-                      id="hideMastered"
-                      name="hideMastered"
-                      value="hide-mastered"
-                      checked={isHideMastered}
-                      onChange={(e) => setIsHideMastered(e.target.checked)}
-                    />
-                    <label htmlFor="hideMastered">Hide Mastered</label>
-                  </div>
-                </div>
-                <button
-                  className="btn btn--border"
-                  type="button"
-                  onClick={handleShuffle}
-                >
-                  <img src={ShuffleIcon} alt="" aria-hidden="true"></img>
-                  Shuffle
-                </button>
-              </div>
-
+              <Filters
+                categoriesWithCounts={categoriesWithCounts}
+                selectedCategories={selectedCategories}
+                handleCategoryChange={handleCategoryChange}
+                handleShuffle={handleShuffle}
+                isHideMastered={isHideMastered}
+                handleMasteredCheck={handleMasteredCheck}
+              ></Filters>
               <div className="card-grid">
                 {filteredCards.slice(0, displayCount).map((card) => (
                   <Card

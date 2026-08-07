@@ -12,6 +12,7 @@ export default function Study({
   onClick,
   onResetClick,
   onIKnowThisClick,
+  children,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -30,7 +31,7 @@ export default function Study({
       <section>
         <div className="container">
           <div className="card study-card">
-            <div className="study-card__header"></div>
+            <div className="study-card__header">{children}</div>
             <div className="study-card__main">
               {cards.length === 0 ? (
                 <div className="no-cards">

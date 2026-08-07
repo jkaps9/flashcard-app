@@ -383,6 +383,7 @@ h6 {
 }
 
 .progress__bar {
+  background-color: var(--color-bg-surface);
   background-image: linear-gradient(
     to right,
     var(--color-border) var(--progress),

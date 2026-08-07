@@ -46,17 +46,24 @@ export default function Study({ cards, onClick }) {
         )}
       </div>
       <div class="study-card__footer">
-        <button class="btn btn--border" onClick={handlePrevious}>
-          <img src={ChevronLeft} alt="" aria-hidden="true" /> Previous
+        <button
+          class="btn btn--border icon-btn"
+          onClick={handlePrevious}
+          aria-label="Go to previous card"
+        >
+          <img src={ChevronLeft} alt="" aria-hidden="true" />{" "}
+          <span className="hide-on-mobile">Previous</span>
         </button>
         <p>
-          Card
-          <span class="current-card">{currentIndex + 1}</span>
-          of
-          <span class="max-cards">{cards.length}</span>
+          Card {currentIndex + 1} of {cards.length}
         </p>
-        <button class="btn btn--border" onClick={handleNext}>
-          Next <img src={ChevronRight} alt="" aria-hidden="true" />
+        <button
+          class="btn btn--border icon-btn"
+          onClick={handleNext}
+          aria-label="Go to next card"
+        >
+          <span class="hide-on-mobile">Next</span>{" "}
+          <img src={ChevronRight} alt="" aria-hidden="true" />
         </button>
       </div>
     </div>

@@ -484,10 +484,18 @@ h2 {
 
 .study-card__main {
   align-self: stretch;
+  align-items: stretch;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 1.25rem;
   padding: clamp(0.75rem, 0.2729rem + 2.0356vw, 1.25rem)
     clamp(1rem, 0.7615rem + 1.0178vw, 1.25rem);
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.625rem, 0.4049rem + 0.939vw, 1.25rem);
+  }
 }
 
 .study-card__footer {
@@ -562,6 +570,12 @@ h2 {
 }
 
 @media (min-width: 48rem) {
+  .study-card__main {
+    align-items: center;
+    .buttons {
+      flex-direction: row;
+    }
+  }
   .study-card__header {
     align-items: center;
   }

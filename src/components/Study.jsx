@@ -35,14 +35,20 @@ export default function Study({ cards, onClick }) {
             </button>
           </div>
         ) : (
-          <StudyCard
-            key={cards[currentIndex].id}
-            id={cards[currentIndex].id}
-            question={cards[currentIndex].question}
-            answer={cards[currentIndex].answer}
-            category={cards[currentIndex].category}
-            knownCount={cards[currentIndex].knownCount}
-          ></StudyCard>
+          <>
+            <StudyCard
+              key={cards[currentIndex].id}
+              id={cards[currentIndex].id}
+              question={cards[currentIndex].question}
+              answer={cards[currentIndex].answer}
+              category={cards[currentIndex].category}
+              knownCount={cards[currentIndex].knownCount}
+            ></StudyCard>
+            <div className="buttons">
+              <button className="btn btn--primary">I Know This</button>
+              <button className="btn btn--secondary">Reset Progress</button>
+            </div>
+          </>
         )}
       </div>
       <div class="study-card__footer">

@@ -414,6 +414,11 @@ h2 {
   letter-spacing: -0.36px;
   line-height: 1.3;
 }
+
+.self-centered {
+  align-self: center;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -482,7 +487,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 238px;
+  min-height: clamp(14.875rem, 14.4349rem + 1.8779vw, 16.125rem);
   position: relative;
 }
 
@@ -549,7 +554,7 @@ h2 {
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 90rem) {
   .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

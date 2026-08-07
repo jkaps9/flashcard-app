@@ -164,6 +164,7 @@ export default function CardManager({ studyMode, toggleView }) {
               Shuffle
             </button>
           </div>
+
           <div className="card-grid">
             {filteredCards.slice(0, displayCount).map((card) => (
               <Card
@@ -178,7 +179,11 @@ export default function CardManager({ studyMode, toggleView }) {
             ))}
           </div>
           {displayCount < filteredCards.length && (
-            <button type="button" className="btn" onClick={handleLoadMoreClick}>
+            <button
+              type="button"
+              className="btn btn--secondary self-centered"
+              onClick={handleLoadMoreClick}
+            >
               Load More
             </button>
           )}

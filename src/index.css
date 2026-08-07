@@ -243,6 +243,10 @@ textarea {
   }
 }
 
+textarea {
+  resize: vertical;
+}
+
 input[type="checkbox"] {
   accent-color: var(--color-accent);
   background: var(--color-bg-surface);

@@ -1,0 +1,30 @@
+.study-card__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  min-height: 360px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+
+  width: 100%;
+  p {
+    color: var(--color-header-text);
+  }
+
+  &:has(.inner__question) {
+    background-color: var(--colors-pink-400);
+  }
+
+  &:has(.inner__answer) {
+    background-color: var(--colors-blue-400);
+  }
+}
+
+.inner__progress {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}

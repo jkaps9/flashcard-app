@@ -441,6 +441,10 @@ h2 {
   background-color: var(--colors-pink-400);
 }
 
+.destructive {
+  color: red !important;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

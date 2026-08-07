@@ -134,7 +134,7 @@ export default function CardManager({ studyMode, toggleView }) {
               Create Card
             </button>
           </form>
-          <div className="row">
+          <div className={styles.filterRow}>
             <div className={styles.cardFilters}>
               <div className="category-filter">
                 <DropdownList

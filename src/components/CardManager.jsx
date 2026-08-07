@@ -85,18 +85,16 @@ export default function CardManager({ studyMode, toggleView }) {
     return [...formattedCategories];
   }, [cards]);
 
-  const filteredCards = useMemo(() => {
-    return cards.filter((card) => {
-      const categoryMatch =
-        selectedCategories.length > 0
-          ? selectedCategories.includes(card.category)
-          : true;
+  const filteredCards = cards.filter((card) => {
+    const categoryMatch =
+      selectedCategories.length > 0
+        ? selectedCategories.includes(card.category)
+        : true;
 
-      const masterCheck = isHideMastered ? card.knownCount !== 5 : true;
+    const masterCheck = isHideMastered ? card.knownCount !== 5 : true;
 
-      return categoryMatch && masterCheck;
-    });
-  }, [selectedCategories, isHideMastered, cards]);
+    return categoryMatch && masterCheck;
+  });
 
   const handleCategoryChange = (e) => {
     const { value, checked } = e.target;

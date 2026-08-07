@@ -28,7 +28,7 @@ export default function Card({
   return (
     <div className="card flashcard">
       <div className="flashcard__header">
-        <h3>{question}</h3>
+        <h2>{question}</h2>
       </div>
 
       <div className="flashcard__answer">

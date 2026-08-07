@@ -382,6 +382,18 @@ h6 {
   text-wrap: nowrap;
 }
 
+.progress__bar {
+  background-image: linear-gradient(
+    to right,
+    var(--color-border) var(--progress),
+    transparent var(--progress)
+  );
+  border: 1px solid var(--color-border);
+  border-radius: 100vw;
+  height: 12px;
+  width: 100px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -466,36 +478,17 @@ h6 {
   border-top: 1px solid var(--color-border);
   display: grid;
   grid-template-columns: auto 1fr auto;
-}
 
-.flashcard__footer > * {
-  padding: 0.5rem;
-}
+  .footer__progress {
+    align-items: center;
+    border-inline: 1px solid var(--color-border);
+    display: flex;
+    gap: 0.5rem;
+  }
 
-.flashcard__footer .footer__progress {
-  align-items: center;
-  border-inline: 1px solid var(--color-border);
-  display: flex;
-  gap: 0.5rem;
-}
-
-.flashcard__footer .progress__bar {
-  background-image: linear-gradient(
-    to right,
-    var(--color-border) var(--progress),
-    transparent var(--progress)
-  );
-  border: 1px solid var(--color-border);
-  border-radius: 100vw;
-  height: 12px;
-  width: 100px;
-}
-
-.study.hidden,
-.all-cards.hidden {
-  visibility: hidden;
-  height: 0;
-  padding: 0;
+  & > * {
+    padding: 0.5rem;
+  }
 }
 
 @media (min-width: 48rem) {

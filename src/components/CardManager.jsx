@@ -49,10 +49,23 @@ export default function CardManager({ studyMode, toggleView }) {
   };
 
   const handleResetProgress = (targetId) => {
-    console.log("Target ID type:", typeof targetId);
     setCards((prev) =>
       prev.map((card) =>
         card.id === targetId ? { ...card, knownCount: 0 } : card,
+      ),
+    );
+  };
+
+  const increaseProgress = (targetId) => {
+    setCards((prev) =>
+      prev.map((card) =>
+        card.id === targetId
+          ? {
+              ...card,
+              knownCount:
+                card.knownCount < 5 ? card.knownCount + 1 : card.knownCount,
+            }
+          : card,
       ),
     );
   };
@@ -108,6 +121,7 @@ export default function CardManager({ studyMode, toggleView }) {
           cards={cards}
           onClick={toggleView}
           onResetClick={handleResetProgress}
+          onIKnowThisClick={increaseProgress}
         ></Study>
       ) : (
         <div className={styles.cardManager}>

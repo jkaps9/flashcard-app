@@ -6,7 +6,12 @@ import ChevronRight from "../assets/icons/icon-chevron-right.svg";
 import Shuffle from "../assets/icons/icon-shuffle.svg";
 import StudyCard from "./StudyCard.jsx";
 
-export default function Study({ cards, onClick, onResetClick }) {
+export default function Study({
+  cards,
+  onClick,
+  onResetClick,
+  onIKnowThisClick,
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -45,7 +50,15 @@ export default function Study({ cards, onClick, onResetClick }) {
               knownCount={cards[currentIndex].knownCount}
             ></StudyCard>
             <div className="buttons">
-              <button className="btn btn--primary">I Know This</button>
+              <button
+                className="btn btn--primary"
+                onClick={() => {
+                  onIKnowThisClick(cards[currentIndex].id);
+                  handleNext();
+                }}
+              >
+                I Know This
+              </button>
               <button
                 className="btn btn--secondary"
                 onClick={() => onResetClick(cards[currentIndex].id)}

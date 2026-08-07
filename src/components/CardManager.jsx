@@ -48,10 +48,12 @@ export default function CardManager({ studyMode, toggleView }) {
     }
   };
 
-  const handleResetProgress = (id) => {
-    console.log(id);
+  const handleResetProgress = (targetId) => {
+    console.log("Target ID type:", typeof targetId);
     setCards((prev) =>
-      prev.map((card) => (card.id === id ? { ...card, knownCount: 0 } : card)),
+      prev.map((card) =>
+        card.id === targetId ? { ...card, knownCount: 0 } : card,
+      ),
     );
   };
 

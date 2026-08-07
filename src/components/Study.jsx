@@ -45,13 +45,13 @@ export default function Study({ cards, onClick, onResetClick }) {
               knownCount={cards[currentIndex].knownCount}
             ></StudyCard>
             <div className="buttons">
+              <button className="btn btn--primary">I Know This</button>
               <button
-                className="btn btn--primary"
+                className="btn btn--secondary"
                 onClick={() => onResetClick(cards[currentIndex].id)}
               >
-                I Know This
+                Reset Progress
               </button>
-              <button className="btn btn--secondary">Reset Progress</button>
             </div>
           </>
         )}

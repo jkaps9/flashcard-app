@@ -100,7 +100,7 @@ export default function ActionMenu({
                 type="button"
                 role="menuitem"
                 tabIndex={-1}
-                className={`action-menu-item ${action.isDestructive ? "destructive" : ""}`}
+                className={`action-menu-item ${action.isDestructive ? "destructive" : undefined}`}
                 onClick={() => handleActionSelect(action.onClick)}
                 onKeyDown={(e) => handleMenuKeyDown(e, index)}
               >

@@ -48,6 +48,13 @@ export default function CardManager({ studyMode, toggleView }) {
     }
   };
 
+  const handleResetProgress = (id) => {
+    console.log(id);
+    setCards((prev) =>
+      prev.map((card) => (card.id === id ? { ...card, knownCount: 0 } : card)),
+    );
+  };
+
   const categoriesWithCounts = useMemo(() => {
     const tally = cards.reduce((acc, item) => {
       acc[item.category] = (acc[item.category] || 0) + 1;
@@ -95,7 +102,11 @@ export default function CardManager({ studyMode, toggleView }) {
   return (
     <>
       {studyMode ? (
-        <Study cards={cards} onClick={toggleView}></Study>
+        <Study
+          cards={cards}
+          onClick={toggleView}
+          onResetClick={handleResetProgress}
+        ></Study>
       ) : (
         <div className={styles.cardManager}>
           <form onSubmit={handleAddCard} className="card">

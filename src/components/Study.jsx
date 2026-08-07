@@ -6,7 +6,7 @@ import ChevronRight from "../assets/icons/icon-chevron-right.svg";
 import Shuffle from "../assets/icons/icon-shuffle.svg";
 import StudyCard from "./StudyCard.jsx";
 
-export default function Study({ cards, onClick }) {
+export default function Study({ cards, onClick, onResetClick }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -20,17 +20,17 @@ export default function Study({ cards, onClick }) {
   };
 
   return (
-    <div class="card study-card">
-      <div class="study-card__header"></div>
-      <div class="study-card__main">
+    <div className="card study-card">
+      <div className="study-card__header"></div>
+      <div className="study-card__main">
         {cards.length === 0 ? (
-          <div class="no-cards">
+          <div className="no-cards">
             <h2>No cards to study</h2>
             <p>
               You don't have any cards yet. Add your first card in the All Cards
               tab.
             </p>
-            <button class="btn btn--secondary" onClick={onClick}>
+            <button className="btn btn--secondary" onClick={onClick}>
               Go to All Cards
             </button>
           </div>
@@ -45,15 +45,20 @@ export default function Study({ cards, onClick }) {
               knownCount={cards[currentIndex].knownCount}
             ></StudyCard>
             <div className="buttons">
-              <button className="btn btn--primary">I Know This</button>
+              <button
+                className="btn btn--primary"
+                onClick={() => onResetClick(cards[currentIndex].id)}
+              >
+                I Know This
+              </button>
               <button className="btn btn--secondary">Reset Progress</button>
             </div>
           </>
         )}
       </div>
-      <div class="study-card__footer">
+      <div className="study-card__footer">
         <button
-          class="btn btn--border icon-btn"
+          className="btn btn--border icon-btn"
           onClick={handlePrevious}
           aria-label="Go to previous card"
         >
@@ -64,11 +69,11 @@ export default function Study({ cards, onClick }) {
           Card {currentIndex + 1} of {cards.length}
         </p>
         <button
-          class="btn btn--border icon-btn"
+          className="btn btn--border icon-btn"
           onClick={handleNext}
           aria-label="Go to next card"
         >
-          <span class="hide-on-mobile">Next</span>{" "}
+          <span className="hide-on-mobile">Next</span>{" "}
           <img src={ChevronRight} alt="" aria-hidden="true" />
         </button>
       </div>

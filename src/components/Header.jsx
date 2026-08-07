@@ -16,8 +16,8 @@ export default function Header({ toggled, onChange }) {
             </div>
           </a>
           <button className="btn btn--secondary mode-toggle" onClick={onChange}>
-            <span className={toggled && "active"}>Study Mode</span>
-            <span className={!toggled && "active"}>All Cards</span>
+            <span className={toggled ? "active" : undefined}>Study Mode</span>
+            <span className={!toggled ? "active" : undefined}>All Cards</span>
           </button>
         </div>
       </div>

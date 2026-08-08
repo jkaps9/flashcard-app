@@ -49,7 +49,7 @@
     left: 1rem;
     position: absolute;
     width: 2rem;
-    z-index: 100;
+    z-index: 1;
   }
 
   &::after {
@@ -60,7 +60,7 @@
     right: 1rem;
     position: absolute;
     width: 1.5rem;
-    z-index: 100;
+    z-index: 1;
   }
 }
 .inner__text--helper {

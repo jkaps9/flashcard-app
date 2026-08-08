@@ -327,18 +327,20 @@ h2 {
   line-height: 1.2;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
+  &:not(:disabled) {
+    &:hover {
+      box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
+    }
 
-  &:hover {
-    box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
-  }
-
-  &:focus-visible,
-  &:active {
-    box-shadow: 3px 3px 0 0 var(--colors-blue-600);
-    outline: none;
+    &:focus-visible,
+    &:active {
+      box-shadow: 3px 3px 0 0 var(--colors-blue-600);
+      outline: none;
+    }
   }
 
   &:disabled {
+    cursor: not-allowed;
     opacity: 0.5;
   }
 }

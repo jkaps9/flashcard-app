@@ -14,7 +14,7 @@
 
   width: 100%;
   p {
-    color: var(--color-header-text);
+    color: var(--color-text-header);
   }
 
   &:has(h1) {

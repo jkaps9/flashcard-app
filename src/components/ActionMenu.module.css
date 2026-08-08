@@ -36,7 +36,7 @@
     align-items: center;
     background: none;
     border: none;
-    color: var(--color-header-text);
+    color: var(--color-text-header);
     cursor: pointer;
     display: inline-flex;
     font-family: var(--font-header);

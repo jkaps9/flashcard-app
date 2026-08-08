@@ -439,7 +439,7 @@ h3 {
 }
 
 .progress__amount {
-  color: var(--color-header-text);
+  color: var(--color-text-header);
   font-weight: 500;
   font-size: 0.75rem;
   letter-spacing: -0.36px;
@@ -488,6 +488,12 @@ h3 {
   position: absolute;
   right: 60px;
   top: 116px;
+
+  p {
+    color: var(--color-text-header);
+    font-weight: 500;
+    line-height: 1.2;
+  }
 }
 
 .sr-only {
@@ -504,7 +510,7 @@ h3 {
 
 .skip {
   background-color: var(--color-primary);
-  color: var(--color-header-text);
+  color: var(--color-text-header);
   left: -9999px;
   opacity: 0;
   padding: 1rem 1.5rem;

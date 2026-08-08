@@ -7,6 +7,7 @@ import shuffleArray from "../scripts/utils";
 import Study from "./Study.jsx";
 import Filters from "./Filters.jsx";
 import CardForm from "./CardForm.jsx";
+import ToastMessage from "./ToastMessage.jsx";
 
 export default function CardManager({ studyMode, toggleView }) {
   const [cards, setCards] = useState(initialCardsData);
@@ -146,6 +147,7 @@ export default function CardManager({ studyMode, toggleView }) {
           <div className="container">
             <div className={styles.cardManager}>
               <div className="card">
+                <ToastMessage text={"Card Added Successfully"}></ToastMessage>
                 <CardForm
                   onSubmit={handleAddCard}
                   buttonText="Add Card"

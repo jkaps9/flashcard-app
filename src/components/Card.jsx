@@ -70,6 +70,12 @@ export default function Card({ card, onDelete, onEdit }) {
             aria-modal="true"
             aria-label="delete card"
             role="dialog"
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                e.preventDefault();
+                closeDeleteModal();
+              }
+            }}
           >
             <div className="modal__text">
               <h3>Delete this card?</h3>

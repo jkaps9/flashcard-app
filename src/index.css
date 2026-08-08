@@ -103,6 +103,7 @@
 
   /* Radius */
   --radius-xs: calc(var(--corner-radius-4) / 16 * 1rem);
+  --radius-full: calc(var(--corner-radius-full)/16 * 1rem);
 }
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
 <~~           Reset            ~~>

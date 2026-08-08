@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import CircleCheck from "../assets/icons/icon-circle-check.svg";
 import ChevronLeft from "../assets/icons/icon-chevron-left.svg";
 import ChevronRight from "../assets/icons/icon-chevron-right.svg";
 import StudyCard from "./StudyCard.jsx";
@@ -75,13 +75,16 @@ export default function Study({
                         onIKnowThisClick(currentCard.id);
                         const willBeFilteredOut =
                           isHideMastered && currentCard.knownCount === 4;
-
                         if (!willBeFilteredOut) {
                           handleNext();
                         }
                       }}
+                      disabled={currentCard.knownCount === 5}
                     >
-                      I Know This
+                      <img src={CircleCheck} alt="" aria-hidden="true" />
+                      {currentCard.knownCount === 5
+                        ? "Already Mastered"
+                        : "I Know This"}
                     </button>
                     <button
                       className="btn btn--secondary"

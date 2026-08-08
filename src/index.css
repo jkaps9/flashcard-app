@@ -475,6 +475,21 @@ h3 {
   }
 }
 
+.toast {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow:
+    0 3px 8px 0 rgba(46, 20, 1, 0.2),
+    2px 2px 0 0 var(--color-border);
+  min-width: 300px;
+  padding: calc(var(--spacing-125) / 16 * 1rem)
+    calc(var(--spacing-200) / 16 * 1rem);
+  position: absolute;
+  right: 60px;
+  top: 116px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

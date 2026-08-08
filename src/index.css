@@ -644,6 +644,10 @@ h3 {
     top: 1rem;
     right: 1rem;
   }
+
+  .card-form > button[type="submit"] {
+    align-self: flex-end;
+  }
 }
 
 @media (min-width: 48rem) {

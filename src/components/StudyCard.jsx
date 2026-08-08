@@ -15,7 +15,7 @@ export default function StudyCard({
   return (
     <div
       key={id}
-      className="card study-card__inner"
+      className={`card study-card__inner ${isAnswerVisible ? "answer-visible" : ""}`}
       onClick={() => {
         setIsAnswerVisible((prev) => !prev);
       }}

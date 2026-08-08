@@ -11,13 +11,21 @@ export default function StudyCard({
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
 
   const percentageComplete = (knownCount / 5) * 100;
-
+  const toggleVisibility = () => {
+    setIsAnswerVisible((prev) => !prev);
+  };
   return (
     <div
       key={id}
       className={`card study-card__inner ${isAnswerVisible ? "answer-visible" : ""}`}
       onClick={() => {
-        setIsAnswerVisible((prev) => !prev);
+        toggleVisibility();
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleVisibility();
+        }
       }}
       tabindex="0"
     >

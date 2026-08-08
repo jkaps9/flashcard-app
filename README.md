@@ -23,7 +23,7 @@ Users should be able to:
 - [x] Create new flashcards with a question, answer, and category
 - [x] Edit existing flashcards to update their details
 - [x] Delete flashcards they no longer need
-- [ ] See form validation messages when trying to submit a card without all fields completed
+- [x] See form validation messages when trying to submit a card without all fields completed
 - [x] View all their flashcards in a grid layout
 - [x] See flashcard details including question, answer, category, and mastery progress
 
@@ -78,7 +78,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox; Grid
 - Mobile-first workflow
-- Webpack
+- React
 
 ## Author
 

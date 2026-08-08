@@ -1,21 +1,38 @@
+import { useState } from "react";
+
 export default function CardForm({
-  question,
-  updateQuestion,
-  answer,
-  updateAnswer,
-  category,
-  updateCategory,
-  handleSubmit,
+  initialState = { question: "", answer: "", category: "" },
+  onSubmit,
+  children,
+  buttonText,
 }) {
+  const [formData, setFormData] = useState(initialState);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(formData);
+    setFormData(initialState);
+  };
+
   return (
     <form onSubmit={handleSubmit} className="card-form">
+      {children}
       <div className="input-group">
         <label htmlFor="question">Question</label>
         <input
           id="question"
           name="question"
-          value={question}
-          onChange={(e) => updateQuestion(e.target.value)}
+          value={formData.question}
+          onChange={handleChange}
           placeholder="e.g., What is the capital of France?"
         />
       </div>
@@ -24,8 +41,8 @@ export default function CardForm({
         <textarea
           id="answer"
           name="answer"
-          value={answer}
-          onChange={(e) => updateAnswer(e.target.value)}
+          value={formData.answer}
+          onChange={handleChange}
           placeholder="e.g., Paris"
           rows={3}
         />
@@ -35,13 +52,13 @@ export default function CardForm({
         <input
           id="category"
           name="category"
-          value={category}
-          onChange={(e) => updateCategory(e.target.value)}
+          value={formData.category}
+          onChange={handleChange}
           placeholder="e.g., Geography"
         />
       </div>
       <button type="submit" className="btn btn--primary">
-        Create Card
+        {buttonText}
       </button>
     </form>
   );

@@ -2,18 +2,12 @@ import { useState } from "react";
 import ActionMenu from "./ActionMenu";
 import EditIcon from "../assets/icons/icon-edit.svg";
 import DeleteIcon from "../assets/icons/icon-delete.svg";
+import CardForm from "./CardForm";
 
-export default function Card({
-  id,
-  question,
-  answer,
-  category,
-  knownCount,
-  onDelete,
-}) {
+export default function Card({ card, onDelete }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const percentageComplete = (knownCount / 5) * 100;
+  const percentageComplete = (card.knownCount / 5) * 100;
 
   const menuActions = [
     {
@@ -28,27 +22,28 @@ export default function Card({
       icon: DeleteIcon,
     },
   ];
+
   return (
     <>
       <div className="card flashcard">
         <div className="flashcard__header">
-          <h2>{question}</h2>
+          <h2>{card.question}</h2>
         </div>
 
         <div className="flashcard__answer">
           <p>Answer: </p>
-          <p className="flashcard__answer-text">{answer}</p>
+          <p className="flashcard__answer-text">{card.answer}</p>
         </div>
         <div className="flashcard__footer">
           <div className="tag-container">
-            <div className="tag">{category}</div>
+            <div className="tag">{card.category}</div>
           </div>
           <div className="footer__progress">
             <div
               className="progress__bar"
               style={{ "--progress": `${percentageComplete}%` }}
             ></div>
-            <p className="progress__amount">{knownCount}/5</p>
+            <p className="progress__amount">{card.knownCount}/5</p>
           </div>
           <ActionMenu
             actions={menuActions}
@@ -77,7 +72,7 @@ export default function Card({
               <button
                 type="button"
                 className="btn btn--primary"
-                onClick={() => onDelete(id)}
+                onClick={() => onDelete(card.id)}
               >
                 Delete Card
               </button>
@@ -88,7 +83,18 @@ export default function Card({
       {isEditing && (
         <div className="modal-overlay">
           <div className="card modal-content">
-            <h2>Edit Your Card</h2>
+            {/* <CardForm
+              question={card.question}
+              updateQuestion={updateQuestion}
+              answer={card.answer}
+              updateAnswer={updateAnswer}
+              category={card.category}
+              updateCategory={updateCategory}
+              handleSubmit={handleEditCard}
+              buttonText="Update Card"
+            >
+              <h2>Edit your card</h2>
+            </CardForm> */}
           </div>
         </div>
       )}

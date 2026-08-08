@@ -11,28 +11,22 @@ import CardForm from "./CardForm.jsx";
 export default function CardManager({ studyMode, toggleView }) {
   const [cards, setCards] = useState(initialCardsData);
   const [displayCount, setDisplayCount] = useState(12);
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [category, setCategory] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isHideMastered, setIsHideMastered] = useState(false);
 
-  const handleAddCard = (e) => {
-    e.preventDefault();
-    if (!question || !answer || !category) return;
+  const handleAddCard = (formData) => {
+    console.log(formData);
+    if (!formData.question || !formData.answer || !formData.category) return;
 
     const newCard = {
       id: Date.now(),
-      question,
-      answer,
-      category,
+      question: formData.question,
+      answer: formData.answer,
+      category: formData.category,
       knownCount: 0,
     };
 
     setCards([...cards, newCard]);
-    setQuestion("");
-    setAnswer("");
-    setCategory("");
   };
 
   const handleDeleteCard = (id) => {
@@ -116,17 +110,6 @@ export default function CardManager({ studyMode, toggleView }) {
     setIsHideMastered((prev) => !prev);
   };
 
-  const updateQuestion = (value) => {
-    setQuestion(value);
-  };
-
-  const updateAnswer = (value) => {
-    setAnswer(value);
-  };
-
-  const updateCategory = (value) => {
-    setCategory(value);
-  };
   return (
     <>
       {studyMode ? (
@@ -153,13 +136,8 @@ export default function CardManager({ studyMode, toggleView }) {
             <div className={styles.cardManager}>
               <div className="card">
                 <CardForm
-                  question={question}
-                  updateQuestion={updateQuestion}
-                  answer={answer}
-                  updateAnswer={updateAnswer}
-                  category={category}
-                  updateCategory={updateCategory}
-                  handleSubmit={handleAddCard}
+                  onSubmit={handleAddCard}
+                  buttonText="Add Card"
                 ></CardForm>
               </div>
               <Filters
@@ -174,11 +152,7 @@ export default function CardManager({ studyMode, toggleView }) {
                 {filteredCards.slice(0, displayCount).map((card) => (
                   <Card
                     key={card.id}
-                    id={card.id}
-                    question={card.question}
-                    answer={card.answer}
-                    category={card.category}
-                    knownCount={card.knownCount}
+                    card={card}
                     onDelete={handleDeleteCard}
                   ></Card>
                 ))}

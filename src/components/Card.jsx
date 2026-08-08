@@ -12,12 +12,13 @@ export default function Card({
   onDelete,
 }) {
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const percentageComplete = (knownCount / 5) * 100;
 
   const menuActions = [
     {
       label: "Edit Card",
-      onClick: () => console.log("Editing", id),
+      onClick: () => setIsEditing(true),
       icon: EditIcon,
     },
     {
@@ -81,6 +82,13 @@ export default function Card({
                 Delete Card
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {isEditing && (
+        <div className="modal-overlay">
+          <div className="card modal-content">
+            <h2>Edit Your Card</h2>
           </div>
         </div>
       )}

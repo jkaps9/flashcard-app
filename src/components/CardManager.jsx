@@ -151,15 +151,17 @@ export default function CardManager({ studyMode, toggleView }) {
         <section>
           <div className="container">
             <div className={styles.cardManager}>
-              <CardForm
-                question={question}
-                updateQuestion={updateQuestion}
-                answer={answer}
-                updateAnswer={updateAnswer}
-                category={category}
-                updateCategory={updateCategory}
-                handleSubmit={handleAddCard}
-              ></CardForm>
+              <div className="card">
+                <CardForm
+                  question={question}
+                  updateQuestion={updateQuestion}
+                  answer={answer}
+                  updateAnswer={updateAnswer}
+                  category={category}
+                  updateCategory={updateCategory}
+                  handleSubmit={handleAddCard}
+                ></CardForm>
+              </div>
               <Filters
                 categoriesWithCounts={categoriesWithCounts}
                 selectedCategories={selectedCategories}

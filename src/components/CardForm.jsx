@@ -8,7 +8,7 @@ export default function CardForm({
   handleSubmit,
 }) {
   return (
-    <form onSubmit={handleSubmit} className="card">
+    <form onSubmit={handleSubmit} className="card-form">
       <div className="input-group">
         <label htmlFor="question">Question</label>
         <input

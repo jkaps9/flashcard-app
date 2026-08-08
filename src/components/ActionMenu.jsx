@@ -78,8 +78,16 @@ export default function ActionMenu({
     setIsOpen(false);
   };
 
+  const handleBlur = (e) => {
+    if (
+      containerRef.current &&
+      !containerRef.current.contains(e.relatedTarget)
+    ) {
+      setIsOpen(false);
+    }
+  };
   return (
-    <div className="action-menu" ref={containerRef}>
+    <div className="action-menu" ref={containerRef} onBlur={handleBlur}>
       <button
         ref={buttonRef}
         type="button"

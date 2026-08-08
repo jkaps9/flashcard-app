@@ -491,9 +491,10 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  position: absolute;
+  position: fixed;
   right: 60px;
   top: 116px;
+  z-index: 1000;
 }
 
 .toast {

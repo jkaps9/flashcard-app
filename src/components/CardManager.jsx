@@ -15,6 +15,7 @@ export default function CardManager({ studyMode, toggleView }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isHideMastered, setIsHideMastered] = useState(false);
   const [toastMessages, setToastMessages] = useState([]);
+  const [addCardFormVisible, setAddCardFormVisible] = useState(false);
 
   const handleAddCard = (formData) => {
     if (!formData.question || !formData.answer || !formData.category) return;
@@ -156,23 +157,25 @@ export default function CardManager({ studyMode, toggleView }) {
         <section>
           <div className="container">
             <div className={styles.cardManager}>
-              <div className="card">
-                {toastMessages.length > 0 ? (
-                  <div className="toast-list">
-                    {toastMessages.map((toastMessage, index) => (
-                      <ToastMessage
-                        key={index}
-                        text={toastMessage}
-                        onClose={() => closeToast(index)}
-                      ></ToastMessage>
-                    ))}
-                  </div>
-                ) : null}
-                <CardForm
-                  onSubmit={handleAddCard}
-                  buttonText="Add Card"
-                ></CardForm>
-              </div>
+              {toastMessages.length > 0 ? (
+                <div className="toast-list">
+                  {toastMessages.map((toastMessage, index) => (
+                    <ToastMessage
+                      key={index}
+                      text={toastMessage}
+                      onClose={() => closeToast(index)}
+                    ></ToastMessage>
+                  ))}
+                </div>
+              ) : null}
+              {addCardFormVisible && (
+                <div className="card">
+                  <CardForm
+                    onSubmit={handleAddCard}
+                    buttonText="Add Card"
+                  ></CardForm>
+                </div>
+              )}
               <Filters
                 categoriesWithCounts={categoriesWithCounts}
                 selectedCategories={selectedCategories}

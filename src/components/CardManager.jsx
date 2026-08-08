@@ -14,9 +14,10 @@ export default function CardManager({ studyMode, toggleView }) {
   const [displayCount, setDisplayCount] = useState(12);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isHideMastered, setIsHideMastered] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const handleAddCard = (formData) => {
-    console.log(formData);
     if (!formData.question || !formData.answer || !formData.category) return;
 
     const newCard = {
@@ -28,6 +29,8 @@ export default function CardManager({ studyMode, toggleView }) {
     };
 
     setCards([...cards, newCard]);
+    setShowToast(true);
+    setToastMessage("Card added successfully.");
   };
 
   const handleEditCard = (idToUpdate, formData) => {
@@ -122,6 +125,11 @@ export default function CardManager({ studyMode, toggleView }) {
     setIsHideMastered((prev) => !prev);
   };
 
+  const closeToast = () => {
+    setShowToast(false);
+    setToastMessage("");
+  };
+
   return (
     <>
       {studyMode ? (
@@ -147,7 +155,12 @@ export default function CardManager({ studyMode, toggleView }) {
           <div className="container">
             <div className={styles.cardManager}>
               <div className="card">
-                <ToastMessage text={"Card Added Successfully"}></ToastMessage>
+                {showToast && (
+                  <ToastMessage
+                    text={toastMessage}
+                    onClose={closeToast}
+                  ></ToastMessage>
+                )}
                 <CardForm
                   onSubmit={handleAddCard}
                   buttonText="Add Card"

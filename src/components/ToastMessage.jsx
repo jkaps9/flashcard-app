@@ -11,7 +11,7 @@ export default function ToastMessage({ text, onClose }) {
   }, [onClose]);
 
   return (
-    <div className="toast row">
+    <div className="toast row" role="alert">
       <p> {text}</p>
       <button type="button" className="close-btn" onClick={onClose}>
         <img src={CloseIcon} alt="" aria-hidden="true" />

@@ -102,8 +102,8 @@ export default function Card({ card, onDelete, onEdit }) {
                 className="close-btn"
                 onClick={() => setIsEditing(false)}
               >
-                <img src={CloseIcon} alt="" />
-                <span className="sr-only">Cancel</span>
+                <img src={CloseIcon} alt="" aria-hidden="true" />
+                <span className="sr-only">Close Modal</span>
               </button>
             </CardForm>
           </div>

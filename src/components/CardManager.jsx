@@ -20,7 +20,7 @@ export default function CardManager({ studyMode, toggleView }) {
     if (!formData.question || !formData.answer || !formData.category) return;
 
     const newCard = {
-      id: Date.now(),
+      id: crypto.randomUUID(),
       question: formData.question,
       answer: formData.answer,
       category: formData.category,

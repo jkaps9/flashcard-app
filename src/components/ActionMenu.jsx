@@ -44,7 +44,7 @@ export default function ActionMenu({
       }
       wasOpen.current = false;
     }
-  }, [isOpen]);
+  }, [isOpen, buttonRef]);
 
   const handleButtonKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {

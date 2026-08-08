@@ -42,10 +42,15 @@ export default function CardManager({ studyMode, toggleView }) {
         return card;
       }),
     );
+
+    setShowToast(true);
+    setToastMessage("Card updated successfully.");
   };
 
   const handleDeleteCard = (id) => {
     setCards(cards.filter((card) => card.id !== id));
+    setShowToast(true);
+    setToastMessage("Card deleted.");
   };
 
   const handleLoadMoreClick = () => {

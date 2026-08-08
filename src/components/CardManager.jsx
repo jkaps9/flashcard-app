@@ -8,6 +8,8 @@ import Study from "./Study.jsx";
 import Filters from "./Filters.jsx";
 import CardForm from "./CardForm.jsx";
 import ToastMessage from "./ToastMessage.jsx";
+import ChevronDown from "../assets/icons/icon-chevron-down.svg";
+import CloseIcon from "../assets/icons/icon-cross.svg";
 
 export default function CardManager({ studyMode, toggleView }) {
   const [cards, setCards] = useState(initialCardsData);
@@ -168,12 +170,30 @@ export default function CardManager({ studyMode, toggleView }) {
                   ))}
                 </div>
               ) : null}
-              {addCardFormVisible && (
+
+              {addCardFormVisible ? (
                 <div className="card">
-                  <CardForm
-                    onSubmit={handleAddCard}
-                    buttonText="Add Card"
-                  ></CardForm>
+                  <CardForm onSubmit={handleAddCard} buttonText="Add Card">
+                    <h2>Create New Card</h2>
+                    <button
+                      type="button"
+                      className="close-btn"
+                      onClick={() => setAddCardFormVisible(false)}
+                    >
+                      <img src={CloseIcon} alt="" aria-hidden="true" />
+                      <span className="sr-only">Close Modal</span>
+                    </button>
+                  </CardForm>
+                </div>
+              ) : (
+                <div>
+                  <button
+                    className="btn btn--secondary"
+                    onClick={() => setAddCardFormVisible(true)}
+                  >
+                    Create Card
+                    <img src={ChevronDown} alt="" aria-hidden="true"></img>
+                  </button>
                 </div>
               )}
               <Filters

@@ -215,7 +215,7 @@ p {
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
-
+  position: relative;
   .input-group {
     align-self: stretch;
     display: flex;
@@ -225,6 +225,12 @@ p {
 
   label {
     display: block;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 }
 
@@ -694,11 +700,6 @@ h3 {
     align-self: flex-end;
     display: flex;
     padding: 0.75rem 1.5rem 1rem;
-  }
-  .close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
   }
 
   .card-form > button[type="submit"] {

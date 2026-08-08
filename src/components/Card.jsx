@@ -54,7 +54,12 @@ export default function Card({ card, onDelete, onEdit }) {
       </div>
       {isDeleting && (
         <div className="modal-overlay">
-          <div className="card modal-content">
+          <div
+            className="card modal-content"
+            aria-modal="true"
+            aria-label="delete card"
+            role="dialog"
+          >
             <div className="modal__text">
               <h3>Delete this card?</h3>
               <p>This action can't be undone.</p>
@@ -74,6 +79,7 @@ export default function Card({ card, onDelete, onEdit }) {
                 type="button"
                 className="btn btn--primary"
                 onClick={() => onDelete(card.id)}
+                autoFocus
               >
                 Delete Card
               </button>
@@ -85,6 +91,9 @@ export default function Card({ card, onDelete, onEdit }) {
         <div className="modal-overlay">
           <div
             className="card modal-content"
+            aria-modal="true"
+            aria-label="edit card"
+            role="dialog"
             onKeyDown={(e) => {
               if (e.key === "Escape") {
                 e.preventDefault();

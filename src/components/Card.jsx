@@ -83,7 +83,15 @@ export default function Card({ card, onDelete, onEdit }) {
       )}
       {isEditing && (
         <div className="modal-overlay">
-          <div className="card modal-content">
+          <div
+            className="card modal-content"
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                e.preventDefault();
+                setIsEditing(false);
+              }
+            }}
+          >
             <CardForm
               initialState={{
                 question: card.question,

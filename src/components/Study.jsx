@@ -2,6 +2,7 @@ import { useState } from "react";
 import CircleCheck from "../assets/icons/icon-circle-check.svg";
 import ChevronLeft from "../assets/icons/icon-chevron-left.svg";
 import ChevronRight from "../assets/icons/icon-chevron-right.svg";
+import ResetIcon from "../assets/icons/icon-reset.svg";
 import StudyCard from "./StudyCard.jsx";
 import StudyStatistics from "./StudyStatistics.jsx";
 
@@ -90,6 +91,7 @@ export default function Study({
                       className="btn btn--secondary"
                       onClick={() => onResetClick(currentCard.id)}
                     >
+                      <img src={ResetIcon} alt="" aria-hidden="true" />
                       Reset Progress
                     </button>
                   </div>

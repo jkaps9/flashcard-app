@@ -52,7 +52,7 @@ Users should be able to:
 
 - [x] Toggle between Study Mode and All Cards views
 - [x] Load more flashcards when viewing the full card list with more than 12 cards
-- [ ] See a toast message when a card is created, updated, or deleted
+- [x] See a toast message when a card is created, updated, or deleted
 - [x] View the optimal layout for the interface depending on their device's screen size
 - [ ] See hover and focus states for all interactive elements on the page
 - [ ] Navigate the entire app using only their keyboard

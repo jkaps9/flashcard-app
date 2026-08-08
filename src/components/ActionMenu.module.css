@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   min-width: 140px;
+  overflow: hidden;
   position: absolute;
   top: 100%;
   right: 0;
@@ -45,10 +46,6 @@
     gap: calc(var(--spacing-100) / 16 * 1rem);
     line-height: 1.4;
     outline: none;
-
-    &:hover {
-      border-color: red;
-    }
   }
 
   & > * {
@@ -57,11 +54,14 @@
     padding: 0.5rem 1rem;
     width: 100%;
 
-    &:has(button:hover),
+    &:has(button:hover) {
+      background-color: var(--colors-neutral-100);
+    }
+
     &:has(button:focus-visible),
     &:has(button:active) {
+      background-color: var(--color-bg-surface);
       border-color: var(--colors-blue-600);
-      border-radius: var(--radius-xs);
     }
   }
 

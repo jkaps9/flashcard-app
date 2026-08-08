@@ -29,6 +29,17 @@ export default function CardManager({ studyMode, toggleView }) {
     setCards([...cards, newCard]);
   };
 
+  const handleEditCard = (idToUpdate, formData) => {
+    setCards((prevCards) =>
+      prevCards.map((card) => {
+        if (card.id === idToUpdate) {
+          return { ...card, ...formData };
+        }
+        return card;
+      }),
+    );
+  };
+
   const handleDeleteCard = (id) => {
     setCards(cards.filter((card) => card.id !== id));
   };
@@ -154,6 +165,7 @@ export default function CardManager({ studyMode, toggleView }) {
                     key={card.id}
                     card={card}
                     onDelete={handleDeleteCard}
+                    onEdit={handleEditCard}
                   ></Card>
                 ))}
               </div>

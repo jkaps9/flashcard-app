@@ -377,6 +377,13 @@ h3 {
   }
 }
 
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -617,6 +624,7 @@ h3 {
 .modal-content {
   align-items: flex-start;
   display: flex;
+  position: relative;
   width: 50%;
   .modal__text {
     align-self: stretch;
@@ -630,6 +638,11 @@ h3 {
     align-self: flex-end;
     display: flex;
     padding: 0.75rem 1.5rem 1rem;
+  }
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 }
 

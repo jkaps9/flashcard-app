@@ -2,9 +2,10 @@ import { useState } from "react";
 import ActionMenu from "./ActionMenu";
 import EditIcon from "../assets/icons/icon-edit.svg";
 import DeleteIcon from "../assets/icons/icon-delete.svg";
+import CloseIcon from "../assets/icons/icon-cross.svg";
 import CardForm from "./CardForm";
 
-export default function Card({ card, onDelete }) {
+export default function Card({ card, onDelete, onEdit }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const percentageComplete = (card.knownCount / 5) * 100;
@@ -83,18 +84,28 @@ export default function Card({ card, onDelete }) {
       {isEditing && (
         <div className="modal-overlay">
           <div className="card modal-content">
-            {/* <CardForm
-              question={card.question}
-              updateQuestion={updateQuestion}
-              answer={card.answer}
-              updateAnswer={updateAnswer}
-              category={card.category}
-              updateCategory={updateCategory}
-              handleSubmit={handleEditCard}
+            <CardForm
+              initialState={{
+                question: card.question,
+                answer: card.answer,
+                category: card.category,
+              }}
+              onSubmit={(formData) => {
+                onEdit(card.id, formData);
+                setIsEditing(false);
+              }}
               buttonText="Update Card"
             >
               <h2>Edit your card</h2>
-            </CardForm> */}
+              <button
+                type="button"
+                className="close-btn"
+                onClick={() => setIsEditing(false)}
+              >
+                <img src={CloseIcon} alt="" />
+                <span className="sr-only">Cancel</span>
+              </button>
+            </CardForm>
           </div>
         </div>
       )}

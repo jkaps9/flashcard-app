@@ -14,8 +14,7 @@ export default function CardManager({ studyMode, toggleView }) {
   const [displayCount, setDisplayCount] = useState(12);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isHideMastered, setIsHideMastered] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
+  const [toastMessages, setToastMessages] = useState([]);
 
   const handleAddCard = (formData) => {
     if (!formData.question || !formData.answer || !formData.category) return;
@@ -29,8 +28,7 @@ export default function CardManager({ studyMode, toggleView }) {
     };
 
     setCards([...cards, newCard]);
-    setShowToast(true);
-    setToastMessage("Card added successfully.");
+    setToastMessages((prev) => [...prev, "Card added successfully."]);
   };
 
   const handleEditCard = (idToUpdate, formData) => {
@@ -43,14 +41,12 @@ export default function CardManager({ studyMode, toggleView }) {
       }),
     );
 
-    setShowToast(true);
-    setToastMessage("Card updated successfully.");
+    setToastMessages((prev) => [...prev, "Card updated successfully."]);
   };
 
   const handleDeleteCard = (id) => {
     setCards(cards.filter((card) => card.id !== id));
-    setShowToast(true);
-    setToastMessage("Card deleted.");
+    setToastMessages((prev) => [...prev, "Card deleted."]);
   };
 
   const handleLoadMoreClick = () => {
@@ -130,9 +126,10 @@ export default function CardManager({ studyMode, toggleView }) {
     setIsHideMastered((prev) => !prev);
   };
 
-  const closeToast = () => {
-    setShowToast(false);
-    setToastMessage("");
+  const closeToast = (indexToRemove) => {
+    setToastMessages((prev) =>
+      prev.filter((_, index) => index !== indexToRemove),
+    );
   };
 
   return (
@@ -160,12 +157,17 @@ export default function CardManager({ studyMode, toggleView }) {
           <div className="container">
             <div className={styles.cardManager}>
               <div className="card">
-                {showToast && (
-                  <ToastMessage
-                    text={toastMessage}
-                    onClose={closeToast}
-                  ></ToastMessage>
-                )}
+                {toastMessages.length > 0 ? (
+                  <div className="toast-list">
+                    {toastMessages.map((toastMessage, index) => (
+                      <ToastMessage
+                        key={index}
+                        text={toastMessage}
+                        onClose={() => closeToast(index)}
+                      ></ToastMessage>
+                    ))}
+                  </div>
+                ) : null}
                 <CardForm
                   onSubmit={handleAddCard}
                   buttonText="Add Card"

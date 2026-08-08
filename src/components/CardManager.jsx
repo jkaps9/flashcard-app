@@ -6,6 +6,8 @@ import styles from "./CardManager.module.css";
 import shuffleArray from "../scripts/utils";
 import Study from "./Study.jsx";
 import Filters from "./Filters.jsx";
+import CardForm from "./CardForm.jsx";
+
 export default function CardManager({ studyMode, toggleView }) {
   const [cards, setCards] = useState(initialCardsData);
   const [displayCount, setDisplayCount] = useState(12);
@@ -114,6 +116,17 @@ export default function CardManager({ studyMode, toggleView }) {
     setIsHideMastered((prev) => !prev);
   };
 
+  const updateQuestion = (value) => {
+    setQuestion(value);
+  };
+
+  const updateAnswer = (value) => {
+    setAnswer(value);
+  };
+
+  const updateCategory = (value) => {
+    setCategory(value);
+  };
   return (
     <>
       {studyMode ? (
@@ -138,42 +151,15 @@ export default function CardManager({ studyMode, toggleView }) {
         <section>
           <div className="container">
             <div className={styles.cardManager}>
-              <form onSubmit={handleAddCard} className="card">
-                <div className="input-group">
-                  <label htmlFor="question">Question</label>
-                  <input
-                    id="question"
-                    name="question"
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                    placeholder="e.g., What is the capital of France?"
-                  />
-                </div>
-                <div className="input-group">
-                  <label htmlFor="answer">Answer</label>
-                  <textarea
-                    id="answer"
-                    name="answer"
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)}
-                    placeholder="e.g., Paris"
-                    rows={3}
-                  />
-                </div>
-                <div className="input-group">
-                  <label htmlFor="category">Category</label>
-                  <input
-                    id="category"
-                    name="category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    placeholder="e.g., Geography"
-                  />
-                </div>
-                <button type="submit" className="btn btn--primary">
-                  Create Card
-                </button>
-              </form>
+              <CardForm
+                question={question}
+                updateQuestion={updateQuestion}
+                answer={answer}
+                updateAnswer={updateAnswer}
+                category={category}
+                updateCategory={updateCategory}
+                handleSubmit={handleAddCard}
+              ></CardForm>
               <Filters
                 categoriesWithCounts={categoriesWithCounts}
                 selectedCategories={selectedCategories}

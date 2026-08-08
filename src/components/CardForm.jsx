@@ -84,7 +84,7 @@ export default function CardForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card-form">
+    <form onSubmit={handleSubmit} className="card-form" noValidate>
       {children}
       <div className="input-group">
         <label htmlFor="question">Question</label>
@@ -96,9 +96,12 @@ export default function CardForm({
           onChange={handleChange}
           placeholder="e.g., What is the capital of France?"
           autoFocus
+          aria-describedby={"questionError"}
+          aria-invalid={errors.questionError}
+          required
         />
         {errors.questionError && (
-          <div className="error-message">
+          <div id="questionError" className="error-message">
             <img src={ErrorIcon} alt="" aria-hidden="true" />
             <p>{errors.questionError}</p>
           </div>
@@ -114,9 +117,12 @@ export default function CardForm({
           onChange={handleChange}
           placeholder="e.g., Paris"
           rows={3}
+          aria-describedby={"answerError"}
+          aria-invalid={errors.answerError}
+          required
         />
         {errors.answerError && (
-          <div className="error-message">
+          <div id="answerError" className="error-message">
             <img src={ErrorIcon} alt="" aria-hidden="true" />
             <p>{errors.answerError}</p>
           </div>
@@ -131,9 +137,12 @@ export default function CardForm({
           value={formData.category}
           onChange={handleChange}
           placeholder="e.g., Geography"
+          aria-describedby={"categoryError"}
+          aria-invalid={errors.categoryError}
+          required
         />
         {errors.categoryError && (
-          <div className="error-message">
+          <div id="categoryError" className="error-message">
             <img src={ErrorIcon} alt="" aria-hidden="true" />
             <p>{errors.categoryError}</p>
           </div>

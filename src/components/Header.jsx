@@ -10,13 +10,13 @@ export default function Header({ toggled, onChange }) {
           <a
             href={`${import.meta.env.BASE_URL}`}
             className="logo"
-            aria-label="{{ site.name }} - home"
+            aria-label="Flashcards home"
           >
             <div className="logo-small">
-              <img src={LogoSmall} alt="site logo" />
+              <img src={LogoSmall} alt="Flashcards site logo" />
             </div>
             <div className="logo-large">
-              <img src={LogoLarge} alt="site logo" />
+              <img src={LogoLarge} alt="Flashcards site logo" />
             </div>
           </a>
           <button className="btn btn--secondary mode-toggle" onClick={onChange}>

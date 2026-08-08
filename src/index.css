@@ -403,6 +403,11 @@ h3 {
   border: none;
   cursor: pointer;
   outline: none;
+  &:hover,
+  &:focus-visible {
+    border-radius: var(--radius-xs);
+    outline: 2px solid var(--colors-blue-600);
+  }
 }
 
 .card-grid {

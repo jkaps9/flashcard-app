@@ -400,6 +400,10 @@ h3 {
   border-bottom-width: 3px;
   display: flex;
   flex-direction: column;
+  &:focus {
+    border-color: var(--colors-blue-600);
+    outline: 2px solid var(--colors-blue-600);
+  }
 }
 
 .tag {

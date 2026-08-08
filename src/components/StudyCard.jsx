@@ -19,6 +19,7 @@ export default function StudyCard({
       onClick={() => {
         setIsAnswerVisible((prev) => !prev);
       }}
+      tabindex="0"
     >
       <div className="tag">{category}</div>
 

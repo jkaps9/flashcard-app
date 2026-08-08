@@ -292,6 +292,10 @@ h2 {
   font-weight: 600;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
 <~~         Utilities          ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
@@ -596,15 +600,34 @@ h2 {
 }
 
 .modal-overlay {
+  background-color: rgb(from var(--colors-neutral-900) r g b / 0.7);
+  display: grid;
+  height: 100vh;
+  left: 0;
+  place-items: center;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  display: grid;
-  place-items: center;
+  z-index: 9998;
+}
+
+.modal-content {
+  align-items: flex-start;
+  display: flex;
+  width: 50%;
+  .modal__text {
+    align-self: stretch;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+  }
+  .modal__buttons {
+    align-self: flex-end;
+    display: flex;
+    padding: 0.75rem 1.5rem 1rem;
+  }
 }
 
 @media (min-width: 48rem) {

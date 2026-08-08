@@ -57,24 +57,28 @@ export default function Card({
       </div>
       {isDeleting && (
         <div className="modal-overlay">
-          <div className="card container modal-content">
-            <h3>Are you sure you want to delete this card?</h3>
-            <p>This action cannot be undone.</p>
-            <div className="buttons" style={{ display: "flex", gap: "1rem" }}>
+          <div className="card modal-content">
+            <div className="modal__text">
+              <h3>Delete this card?</h3>
+              <p>This action can't be undone.</p>
+            </div>
+            <div
+              className="modal__buttons"
+              style={{ display: "flex", gap: "1rem" }}
+            >
               <button
                 type="button"
-                className="btn"
+                className="btn btn--border"
                 onClick={() => setIsDeleting(false)}
-                autofocus
               >
                 Cancel
               </button>
               <button
                 type="button"
-                className="btn"
+                className="btn btn--primary"
                 onClick={() => onDelete(id)}
               >
-                Delete
+                Delete Card
               </button>
             </div>
           </div>

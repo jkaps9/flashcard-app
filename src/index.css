@@ -709,5 +709,12 @@ h3 {
         min-width: 392px;
       }
     }
+
+    .study-statistics {
+      height: 100%;
+      .card {
+        height: 100%;
+      }
+    }
   }
 }

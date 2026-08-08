@@ -11,7 +11,8 @@
   align-items: flex-start;
   align-self: stretch;
   display: grid;
-  gap: 1rem;
+  flex: 1;
+  gap: clamp(1rem, 0.912rem + 0.3756vw, 1.25rem);
 }
 
 .stats-card {
@@ -27,6 +28,9 @@
   justify-content: space-between;
   min-height: 7.5rem;
   overflow: hidden;
+  h2 {
+    font-size: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+  }
 }
 
 .stats-card__content {
@@ -44,7 +48,7 @@
 }
 
 .stats-card__amount {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
 }

@@ -67,6 +67,8 @@ export default function Study({
                     answer={currentCard.answer}
                     category={currentCard.category}
                     knownCount={currentCard.knownCount}
+                    handleNext={handleNext}
+                    handlePrevious={handlePrevious}
                   ></StudyCard>
 
                   <div className="buttons">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./StudyCard.css";
 
 export default function StudyCard({
@@ -7,8 +7,17 @@ export default function StudyCard({
   answer,
   category,
   knownCount,
+  handleNext,
+  handlePrevious,
 }) {
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      cardRef.current.focus();
+    }
+  }, [id]);
 
   const percentageComplete = (knownCount / 5) * 100;
   const toggleVisibility = () => {
@@ -16,6 +25,7 @@ export default function StudyCard({
   };
   return (
     <div
+      ref={cardRef}
       key={id}
       className={`card study-card__inner ${isAnswerVisible ? "answer-visible" : ""}`}
       onClick={() => {
@@ -25,6 +35,12 @@ export default function StudyCard({
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           toggleVisibility();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          handlePrevious();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          handleNext();
         }
       }}
       tabindex="0"

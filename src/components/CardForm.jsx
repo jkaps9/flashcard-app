@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ErrorIcon from "../assets/icons/icon-error.svg";
 
 export default function CardForm({
   initialState = { question: "", answer: "", category: "" },
@@ -7,6 +8,11 @@ export default function CardForm({
   buttonText,
 }) {
   const [formData, setFormData] = useState(initialState);
+  const [errors, setErrors] = useState({
+    questionError: "",
+    answerError: "",
+    categoryError: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +23,37 @@ export default function CardForm({
     }));
   };
 
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {
+      questionError: "",
+      answerError: "",
+      categoryError: "",
+    };
+
+    if (formData.question === "") {
+      newErrors.questionError = "Please enter a question.";
+      isValid = false;
+    }
+    if (formData.answer === "") {
+      newErrors.answerError = "Please enter a answer.";
+      isValid = false;
+    }
+    if (formData.category === "") {
+      newErrors.categoryError = "Please enter a category.";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    setFormData(initialState);
+    if (validateForm()) {
+      onSubmit(formData);
+      setFormData(initialState);
+    }
   };
 
   return (
@@ -35,6 +68,12 @@ export default function CardForm({
           onChange={handleChange}
           placeholder="e.g., What is the capital of France?"
         />
+        {errors.questionError && (
+          <div className="error-message">
+            <img src={ErrorIcon} alt="" aria-hidden="true" />
+            <p>{errors.questionError}</p>
+          </div>
+        )}
       </div>
       <div className="input-group">
         <label htmlFor="answer">Answer</label>
@@ -46,6 +85,12 @@ export default function CardForm({
           placeholder="e.g., Paris"
           rows={3}
         />
+        {errors.answerError && (
+          <div className="error-message">
+            <img src={ErrorIcon} alt="" aria-hidden="true" />
+            <p>{errors.answerError}</p>
+          </div>
+        )}
       </div>
       <div className="input-group">
         <label htmlFor="category">Category</label>
@@ -56,6 +101,12 @@ export default function CardForm({
           onChange={handleChange}
           placeholder="e.g., Geography"
         />
+        {errors.categoryError && (
+          <div className="error-message">
+            <img src={ErrorIcon} alt="" aria-hidden="true" />
+            <p>{errors.categoryError}</p>
+          </div>
+        )}
       </div>
       <button type="submit" className="btn btn--primary">
         {buttonText}

@@ -218,11 +218,13 @@ p {
 
   .input-group {
     align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   label {
     display: block;
-    margin-bottom: 0.5rem;
   }
 }
 
@@ -462,6 +464,15 @@ h3 {
 
 .bg-pink {
   background-color: var(--colors-pink-400);
+}
+
+.error-message {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  p {
+    color: var(--colors-pink-700);
+  }
 }
 
 .sr-only {

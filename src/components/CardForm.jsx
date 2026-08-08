@@ -81,6 +81,7 @@ export default function CardForm({
           value={formData.question}
           onChange={handleChange}
           placeholder="e.g., What is the capital of France?"
+          autoFocus
         />
         {errors.questionError && (
           <div className="error-message">

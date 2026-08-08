@@ -13,10 +13,12 @@ export default function ActionMenu({
   const menuRef = useRef(null);
   const itemRefs = useRef([]);
   const wasOpen = useRef(false);
+  const shouldReturnFocus = useRef(true);
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (containerRef.current && !containerRef.current.contains(e.target)) {
+        shouldReturnFocus.current = true;
         setIsOpen(false);
       }
     };
@@ -32,9 +34,12 @@ export default function ActionMenu({
     if (isOpen && itemRefs.current[0]) {
       itemRefs.current[0].focus();
       wasOpen.current = true;
+      shouldReturnFocus.current = true;
     } else if (!isOpen && wasOpen.current && buttonRef.current) {
       // Return focus to the trigger button when closed
-      buttonRef.current.focus();
+      if (shouldReturnFocus.current) {
+        buttonRef.current.focus();
+      }
       wasOpen.current = false;
     }
   }, [isOpen]);
@@ -66,6 +71,7 @@ export default function ActionMenu({
   };
 
   const handleActionSelect = (onClick) => {
+    shouldReturnFocus.current = false;
     onClick();
     setIsOpen(false);
   };

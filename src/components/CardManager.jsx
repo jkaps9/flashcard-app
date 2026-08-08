@@ -48,8 +48,27 @@ export default function CardManager({ studyMode, toggleView }) {
   };
 
   const handleDeleteCard = (id) => {
+    const indexToDelete = filteredCards.findIndex((card) => card.id === id);
+
     setCards(cards.filter((card) => card.id !== id));
     setToastMessages((prev) => [...prev, "Card deleted."]);
+
+    setTimeout(() => {
+      const remainingMenus = document.querySelectorAll(
+        '.action-menu button[aria-haspopup="menu"]',
+      );
+
+      if (remainingMenus.length > 0) {
+        const nextFocusIndex =
+          indexToDelete < remainingMenus.length
+            ? indexToDelete
+            : remainingMenus.length - 1;
+
+        remainingMenus[nextFocusIndex].focus();
+      } else {
+        document.getElementById("categoryFilterButton")?.focus();
+      }
+    }, 0);
   };
 
   const handleLoadMoreClick = () => {

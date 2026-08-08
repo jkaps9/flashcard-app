@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ActionMenu from "./ActionMenu";
 import EditIcon from "../assets/icons/icon-edit.svg";
 import DeleteIcon from "../assets/icons/icon-delete.svg";
@@ -9,7 +9,17 @@ export default function Card({ card, onDelete, onEdit }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const percentageComplete = (card.knownCount / 5) * 100;
+  const actionTriggerRef = useRef(null);
 
+  const closeEditModal = () => {
+    setIsEditing(false);
+    actionTriggerRef.current?.focus();
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleting(false);
+    actionTriggerRef.current?.focus();
+  };
   const menuActions = [
     {
       label: "Edit Card",
@@ -47,6 +57,7 @@ export default function Card({ card, onDelete, onEdit }) {
             <p className="progress__amount">{card.knownCount}/5</p>
           </div>
           <ActionMenu
+            triggerRef={actionTriggerRef}
             actions={menuActions}
             ariaLabel={`Open actions menu`}
           ></ActionMenu>
@@ -71,7 +82,7 @@ export default function Card({ card, onDelete, onEdit }) {
               <button
                 type="button"
                 className="btn btn--border"
-                onClick={() => setIsDeleting(false)}
+                onClick={closeDeleteModal}
               >
                 Cancel
               </button>
@@ -97,7 +108,7 @@ export default function Card({ card, onDelete, onEdit }) {
             onKeyDown={(e) => {
               if (e.key === "Escape") {
                 e.preventDefault();
-                setIsEditing(false);
+                closeEditModal();
               }
             }}
           >
@@ -109,7 +120,7 @@ export default function Card({ card, onDelete, onEdit }) {
               }}
               onSubmit={(formData) => {
                 onEdit(card.id, formData);
-                setIsEditing(false);
+                closeEditModal();
               }}
               buttonText="Update Card"
             >
@@ -117,7 +128,7 @@ export default function Card({ card, onDelete, onEdit }) {
               <button
                 type="button"
                 className="close-btn"
-                onClick={() => setIsEditing(false)}
+                onClick={closeEditModal}
               >
                 <img src={CloseIcon} alt="" aria-hidden="true" />
                 <span className="sr-only">Close Modal</span>

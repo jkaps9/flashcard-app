@@ -5,11 +5,13 @@ import styles from "./ActionMenu.module.css";
 export default function ActionMenu({
   actions,
   ariaLabel = "Open options menu",
+  triggerRef,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const containerRef = useRef(null);
-  const buttonRef = useRef(null);
+  const internalButtonRef = useRef(null);
+  const buttonRef = triggerRef || internalButtonRef;
   const menuRef = useRef(null);
   const itemRefs = useRef([]);
   const wasOpen = useRef(false);

@@ -12,6 +12,7 @@ export default function CardForm({
     questionError: "",
     answerError: "",
     categoryError: "",
+    formError: "",
   });
 
   const handleChange = (e) => {
@@ -29,6 +30,7 @@ export default function CardForm({
       questionError: "",
       answerError: "",
       categoryError: "",
+      formError: "",
     };
 
     if (formData.question === "") {
@@ -41,6 +43,16 @@ export default function CardForm({
     }
     if (formData.category === "") {
       newErrors.categoryError = "Please enter a category.";
+      isValid = false;
+    }
+
+    if (
+      formData.question === initialState.question &&
+      formData.answer === initialState.answer &&
+      formData.category === initialState.category &&
+      isValid
+    ) {
+      newErrors.formError = "Nothing changed";
       isValid = false;
     }
 
@@ -108,6 +120,12 @@ export default function CardForm({
           </div>
         )}
       </div>
+      {errors.formError && (
+        <div className="error-message">
+          <img src={ErrorIcon} alt="" aria-hidden="true" />
+          <p>{errors.formError}</p>
+        </div>
+      )}
       <button type="submit" className="btn btn--primary">
         {buttonText}
       </button>

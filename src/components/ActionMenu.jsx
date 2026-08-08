@@ -93,7 +93,7 @@ export default function ActionMenu({
           aria-orientation="vertical"
         >
           {actions.map((action, index) => (
-            <div>
+            <div key={action.label}>
               <button
                 key={action.label}
                 ref={(el) => (itemRefs.current[index] = el)}

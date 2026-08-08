@@ -21,7 +21,7 @@ Users should be able to:
 #### Flashcard Management
 
 - [x] Create new flashcards with a question, answer, and category
-- [ ] Edit existing flashcards to update their details
+- [x] Edit existing flashcards to update their details
 - [x] Delete flashcards they no longer need
 - [ ] See form validation messages when trying to submit a card without all fields completed
 - [x] View all their flashcards in a grid layout

@@ -59,7 +59,9 @@ Users should be able to:
 
 ### Screenshot
 
-<img src="./screenshot.png" alt="screenshot" width="500"/>
+<img src="./study-mode.png" alt="screenshot" width="500"/>
+<img src="./study-mode-answer.png" alt="screenshot" width="500"/>
+<img src="./all-cards.png" alt="screenshot" width="500"/>
 
 ### Links
 

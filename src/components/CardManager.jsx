@@ -173,7 +173,11 @@ export default function CardManager({ studyMode, toggleView }) {
 
               {addCardFormVisible ? (
                 <div className="card">
-                  <CardForm onSubmit={handleAddCard} buttonText="Add Card">
+                  <CardForm
+                    onSubmit={handleAddCard}
+                    buttonText="Add Card"
+                    isCreating={true}
+                  >
                     <h2>Create New Card</h2>
                     <button
                       type="button"

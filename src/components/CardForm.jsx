@@ -1,11 +1,13 @@
 import { useState } from "react";
 import ErrorIcon from "../assets/icons/icon-error.svg";
+import PlusIcon from "../assets/icons/icon-circle-plus.svg";
 
 export default function CardForm({
   initialState = { question: "", answer: "", category: "" },
   onSubmit,
   children,
   buttonText,
+  isCreating = false,
 }) {
   const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({
@@ -127,6 +129,7 @@ export default function CardForm({
         </div>
       )}
       <button type="submit" className="btn btn--primary">
+        {isCreating && <img src={PlusIcon} alt="" aria-hidden="true" />}
         {buttonText}
       </button>
     </form>

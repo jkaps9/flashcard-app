@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ErrorIcon from "../assets/icons/icon-error.svg";
 import PlusIcon from "../assets/icons/icon-circle-plus.svg";
 
@@ -16,6 +16,10 @@ export default function CardForm({
     categoryError: "",
     formError: "",
   });
+
+  const inputQuestionRef = useRef(null);
+  const inputAnswerRef = useRef(null);
+  const inputCategoryRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,14 +63,23 @@ export default function CardForm({
     }
 
     setErrors(newErrors);
-    return isValid;
+    return { isValid, newErrors };
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
+    const { isValid, newErrors } = validateForm();
+    if (isValid) {
       onSubmit(formData);
       setFormData(initialState);
+    } else {
+      if (newErrors.questionError && inputQuestionRef.current) {
+        inputQuestionRef.current.focus();
+      } else if (newErrors.answerError && inputAnswerRef.current) {
+        inputAnswerRef.current.focus();
+      } else if (newErrors.categoryError && inputCategoryRef.current) {
+        inputCategoryRef.current.focus();
+      }
     }
   };
 
@@ -76,6 +89,7 @@ export default function CardForm({
       <div className="input-group">
         <label htmlFor="question">Question</label>
         <input
+          ref={inputQuestionRef}
           id="question"
           name="question"
           value={formData.question}
@@ -93,6 +107,7 @@ export default function CardForm({
       <div className="input-group">
         <label htmlFor="answer">Answer</label>
         <textarea
+          ref={inputAnswerRef}
           id="answer"
           name="answer"
           value={formData.answer}
@@ -110,6 +125,7 @@ export default function CardForm({
       <div className="input-group">
         <label htmlFor="category">Category</label>
         <input
+          ref={inputCategoryRef}
           id="category"
           name="category"
           value={formData.category}

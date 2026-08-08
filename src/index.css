@@ -269,6 +269,7 @@ input[type="checkbox"] {
 
     & + label {
       cursor: pointer;
+      font-weight: 500;
     }
   }
 
@@ -337,6 +338,15 @@ h3 {
   line-height: 1.2;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
   &:not(:disabled) {
     &:hover {
       box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
@@ -348,19 +358,21 @@ h3 {
       outline: none;
     }
   }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-}
-
-.btn--primary {
-  background-color: var(--color-accent);
 }
 
 .btn--secondary {
   background-color: var(--colors-neutral-0);
+  &:not(:disabled) {
+    &:hover {
+      box-shadow: 4px 4px 0 0 var(--colors-neutral-900);
+    }
+
+    &:focus-visible,
+    &:active {
+      box-shadow: 3px 3px 0 0 var(--colors-blue-600);
+      outline: none;
+    }
+  }
 }
 
 .btn--border {

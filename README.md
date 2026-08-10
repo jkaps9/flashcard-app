@@ -84,5 +84,4 @@ Users should be able to:
 
 ## Author
 
-- Website - [Josh](https://www.joshfkaplan.com)
 - Frontend Mentor - [@jkaps9](https://www.frontendmentor.io/profile/jkaps9)

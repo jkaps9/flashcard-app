@@ -81,7 +81,9 @@ export default function DropdownList({
       </button>
       {isOpen && (
         <fieldset ref={menuRef} className={styles.dropdownList}>
-          <legend className="sr-only">Filter by category</legend>
+          <legend>
+            <span className="sr-only">Filter by category</span>
+          </legend>
           {listItems.map((category, index) => (
             <div key={category.name}>
               <input
